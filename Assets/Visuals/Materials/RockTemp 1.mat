@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fd7cf88ee9b05f94f84bd7686a9669a6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -73,5 +73,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.25173923, g: 0.38679248, b: 0.21711464, a: 1}
+    - _Color: {r: 0.1981132, g: 0.18035148, b: 0.14297792, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
