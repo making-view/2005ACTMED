@@ -15,6 +15,8 @@
             "."
         ],
         "fbxSavePaths": [
+            "Visuals/Geometry/Spruce",
+            "Visuals/Materials/Flora",
             "Visuals",
             "."
         ],
@@ -29,7 +31,7 @@
             "include": 0,
             "lodLevel": 1,
             "objectPosition": 0,
-            "exportUnrendered": true
+            "exportUnrendered": false
         },
         "convertToPrefabSettingsSerialize": {
             "exportFormat": 0,
