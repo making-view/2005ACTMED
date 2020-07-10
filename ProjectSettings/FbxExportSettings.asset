@@ -15,6 +15,7 @@
             "."
         ],
         "fbxSavePaths": [
+            "Visuals/Geometry/bush",
             "Visuals/Geometry/Spruce",
             "Visuals/Materials/Flora",
             "Visuals",
