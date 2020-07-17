@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Optimized_Leaf_Material
-    second: {fileID: 21278295673056344, guid: 2cabe3dcebbf53242a8228370f86fdcb, type: 3}
+    second: {fileID: 21385544129814522, guid: da376041ba36f5b4daad3798c43d5e01, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
