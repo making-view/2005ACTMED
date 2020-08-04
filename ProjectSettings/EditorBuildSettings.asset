@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scandinavian_Forest.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Evo_Cave.unity
+    guid: 188c8dfab4971e04d81c9f676a821e03
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e956b618e5fbbb7479b8d1956f5f1c3f,
       type: 2}
