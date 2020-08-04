@@ -200,7 +200,7 @@ public class OVRManifestPreprocessor
                 "uses-feature",
                 "android.hardware.vr.headtracking",
                 OVRDeviceSelector.isTargetDeviceQuest,
-                modifyIfFound,
+                true,
                 "version", "1",
                 "required", OVRDeviceSelector.isTargetDeviceGearVrOrGo ? "false" : "true");
 
@@ -224,19 +224,9 @@ public class OVRManifestPreprocessor
                 androidNamepsaceURI,
                 "/manifest",
                 "uses-permission",
-                "oculus.permission.handtracking",
+                "com.oculus.permission.HAND_TRACKING",
                 handTrackingEntryNeeded,
                 modifyIfFound);
-
-            // Add Colorspace metadata if targeting Quest
-            AddOrRemoveTag(doc,
-                androidNamepsaceURI,
-                "/manifest/application",
-                "meta-data",
-                "com.oculus.application.colorspace",
-                OVRDeviceSelector.isTargetDeviceQuest && projectConfig.colorGamut != OVRProjectConfig.ColorGamut.Default,
-                modifyIfFound,
-                "value", OVRProjectConfig.ColorGamutToString(projectConfig.colorGamut));
 
             // Add focus aware tag if this app is targeting Quest
             AddOrRemoveTag(doc,
@@ -267,11 +257,7 @@ public class OVRManifestPreprocessor
                 true,
                 modifyIfFound,
                 "label", "@string/app_name",
-#if UNITY_2018_2_OR_NEWER
                 "icon", "@mipmap/app_icon",
-#else
-				"icon", "@drawable/app_icon",
-#endif
                 // Disable allowBackup in manifest and add Android NSC XML file				
                 "allowBackup", projectConfig.disableBackups ? "false" : "true",
                 "networkSecurityConfig", projectConfig.enableNSCConfig && enableSecurity ? "@xml/network_sec_config" : null
