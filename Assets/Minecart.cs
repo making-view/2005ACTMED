@@ -31,7 +31,7 @@ public class Minecart : MonoBehaviour
     {
         timeElapsed += Time.deltaTime;
 
-        if (!(timeElapsed > duration))
+        if (!(timeElapsed > duration + wait))
             this.transform.position = Vector3.Lerp(startPos, endPos, (timeElapsed - wait) / duration);
         else
         {
