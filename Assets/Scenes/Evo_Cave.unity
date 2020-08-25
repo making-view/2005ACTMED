@@ -3436,6 +3436,7 @@ MonoBehaviour:
   - {fileID: 1192116426}
   nextParticles:
   - {fileID: 0}
+  tag: Cart
 --- !u!65 &332041759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7045,6 +7046,7 @@ MonoBehaviour:
   currentParticles:
   - {fileID: 0}
   nextParticles: []
+  tag: Cart
 --- !u!65 &665197210
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7727,6 +7729,7 @@ MonoBehaviour:
   - {fileID: 0}
   nextParticles:
   - {fileID: 0}
+  tag: Cart
 --- !u!65 &703728426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10101,6 +10104,7 @@ MonoBehaviour:
   - {fileID: 0}
   nextParticles:
   - {fileID: 0}
+  tag: Cart
 --- !u!65 &911723168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10311,6 +10315,7 @@ MonoBehaviour:
   - {fileID: 0}
   nextParticles:
   - {fileID: 0}
+  tag: Cart
 --- !u!65 &918418911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12000,6 +12005,7 @@ MonoBehaviour:
   - {fileID: 1046826699}
   nextParticles:
   - {fileID: 1192116426}
+  tag: Cart
 --- !u!65 &1108770963
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18666,6 +18672,7 @@ MonoBehaviour:
   - {fileID: 0}
   nextParticles:
   - {fileID: 0}
+  tag: Cart
 --- !u!65 &1669151716
 BoxCollider:
   m_ObjectHideFlags: 0

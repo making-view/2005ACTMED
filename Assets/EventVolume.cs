@@ -6,6 +6,7 @@ using UnityEngine;
 public class EventVolume : MonoBehaviour
 {
     bool activated = false;
+    bool done = false;
 
     [SerializeField]
     AudioClip narration = null;
@@ -27,15 +28,20 @@ public class EventVolume : MonoBehaviour
     [SerializeField]
     List<ParticleSystem> nextParticles;
 
+    [SerializeField]
+    string tag = "";
 
 
     // Start is called before the first frame update
     void Start()
     {
-        intensity = raito.intensity;
-        raito.intensity = 0;
+        if(raito != null)
+        {
+            intensity = raito.intensity;
+            raito.intensity = 0;
 
-        raito.enabled = false;
+            raito.enabled = false;
+        }
 
         nr_source = gameObject.AddComponent<AudioSource>();
         nr_source.spatialize = false;
@@ -57,16 +63,18 @@ public class EventVolume : MonoBehaviour
     // Update is called once per frame
     void Update()
     {    //when fading in
-        if (activated && lightfade && raito.intensity < intensity)
-        {
-            Debug.Log("intensity: " + raito.intensity);
-            raito.intensity += Time.deltaTime * fadespeed;
-        } //when fading back out
-        else if (!activated && raito.intensity > 0.0f)
-        {
-            raito.intensity -= Time.deltaTime * fadespeed;
-        }
 
+        if (raito != null)
+        {
+            if (activated && lightfade && raito.intensity < intensity)
+            {
+                raito.intensity += Time.deltaTime * fadespeed;
+            } //when fading back out
+            else if (!activated && raito.intensity > 0.0f)
+            {
+                raito.intensity -= Time.deltaTime * fadespeed;
+            }
+        }
         //if you should fade back out
         if (narration != null && activated)
         {
@@ -79,6 +87,7 @@ public class EventVolume : MonoBehaviour
     private void Stop()
     {
         activated = false;
+        done = true;
 
         if (sfx != null)
             sfx_source.Stop();
@@ -89,9 +98,9 @@ public class EventVolume : MonoBehaviour
     {
         Debug.Log(other.gameObject.name + " entered " + this.gameObject.name);
 
-        if (other.gameObject.tag.Equals("Cart"))
+        if (!done && other.gameObject.tag.Equals(tag))
         {
-            Debug.Log("playertag found");
+            Debug.Log(tag + " found");
             activated = true;
             Play();
         }    
@@ -118,7 +127,10 @@ public class EventVolume : MonoBehaviour
             sfx_source.Play();
         }
 
-        raito.enabled = true;
+        if(raito != null)
+            raito.enabled = true;
+
+
         lightfade = true;
 
         foreach (ParticleSystem p in currentParticles)
