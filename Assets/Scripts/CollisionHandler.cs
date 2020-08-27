@@ -2,23 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+
 
 public class CollisionHandler : MonoBehaviour
 {
     [SerializeField]
-    string sceneToLoad;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    string sceneToLoad = "";
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -27,12 +17,18 @@ public class CollisionHandler : MonoBehaviour
         if (collider.gameObject.tag.Equals("Player"))
         {
             Debug.Log("hit by player");
-            SceneManager.LoadScene(sceneToLoad);
+            Start();
         }
     }
 
-    //private void OnControllerColliderHit(ControllerColliderHit hit)
-    //{
-    //    Debug.Log("hit by " + hit.gameObject.name);
-    //}
+    private void Start()
+    {
+        if(!sceneToLoad.Equals(""))
+            SceneManager.LoadScene(sceneToLoad);
+        else
+        {
+                Debug.Log("do other stuff");
+        }
+    }
+
 }
