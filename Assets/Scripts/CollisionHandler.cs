@@ -17,11 +17,11 @@ public class CollisionHandler : MonoBehaviour
         if (collider.gameObject.tag.Equals("Player"))
         {
             Debug.Log("hit by player");
-            Start();
+            StartLoading();
         }
     }
 
-    private void Start()
+    private void StartLoading()
     {
         if(!sceneToLoad.Equals(""))
             SceneManager.LoadScene(sceneToLoad);
