@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.UI;
 
 public class Bubble : MonoBehaviour
@@ -17,26 +18,42 @@ public class Bubble : MonoBehaviour
     private GameObject YMin;
     private GameObject YMax;
 
-    [Range(0.0f, 2f)]
-    public float speed = 1;
+    private float offset;
 
-    [Range(0.1f, 2f)]
+    [Range(0.0f, 100f)]
+    public float speed = 50f;
+
+    [Range(0.0f, 100f)]
+    public float devMag = 50f;
+
+    [Range(0.0f, 10f)]
+    public float maxFollow = 3.0f;
+
+    [Range(0.0f, 10f)]
     public float followOrAscend = 0.5f;
-
-    [Range(1f, 5f)]
-    public float maxFollow = 2.0f;
 
     //[Range(0.0f, 10.0f)]
     //public float deviation = 1;
 
-    public bool floating = true;
+    private Rigidbody body = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        body = this.GetComponent<Rigidbody>();
         text = this.GetComponentInChildren<Text>();
+        LookAtConstraint lookat = this.GetComponentInChildren<LookAtConstraint>();
 
-        if(parent != null)
+        GameObject camera = GameObject.FindObjectOfType<Camera>().gameObject;
+        ConstraintSource constraint = new ConstraintSource();
+        constraint.weight = 1;
+        constraint.sourceTransform = camera.transform;
+
+        lookat.AddSource(constraint);
+
+        parent = GameObject.FindObjectOfType<BubbleSpawner>();
+
+        if (parent != null)
         {
             Debug.Log("topbot set");
 
@@ -44,36 +61,55 @@ public class Bubble : MonoBehaviour
             YMax = parent.maxY;
         }
 
-        Respawn();
+        offset = UnityEngine.Random.Range(0, Mathf.PI);
+
+        text.text = parent.getText();
+        XZTarget = parent.getTarget();
     }
 
     // Update is called once per frame
 
     void Update()
     {
+        Vector3 dir = CalculateDir();
 
-        //calculate direction vector
-        Vector3 dir = new Vector3 (
-            Mathf.Clamp(XZTarget.transform.position.x - transform.position.x, -maxFollow, maxFollow),
-            followOrAscend,
-            Mathf.Clamp(XZTarget.transform.position.z - transform.position.z, -maxFollow, maxFollow))
-            .normalized;
+        //make follow coordinate based
+        //this.gameObject.transform.position += Time.deltaTime * speed * dir;
 
-        //make follow force based instead of coordinate based
-        this.gameObject.transform.position += Time.deltaTime * speed * dir;
+        body.AddForce(dir * speed * Time.deltaTime);
 
+
+        Vector3 devec = new Vector3(Mathf.Sin(Time.time + offset), 0, Mathf.Cos(Time.time + offset)) * devMag * Time.deltaTime;
+
+        body.AddForce(devec);
 
         if (transform.position.y > YMax.transform.position.y)
         {
-            Respawn();
+            //Respawn();
+            Destroy(this.gameObject);
         }
-            
+
         //increase in size and float around XZTarget
         //disappear when reached height of ZMax
     }
 
+    private Vector3 CalculateDir()
+    {
+        
+        //calculate direction vector
+        return new Vector3(
+            Mathf.Clamp(XZTarget.transform.position.x - transform.position.x, -maxFollow, maxFollow),
+            followOrAscend,
+            Mathf.Clamp(XZTarget.transform.position.z - transform.position.z, -maxFollow, maxFollow))
+            .normalized;
+    }
+
+    //Todo, fade bubble instead of just moving it
     void Respawn()
     {
+
+
+        body.velocity = Vector3.zero;
         text.text = parent.getText();
         XZTarget = parent.getTarget();
         //reset y position

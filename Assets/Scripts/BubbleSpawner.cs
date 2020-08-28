@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class BubbleSpawner : MonoBehaviour
 {
+
+    [SerializeField]
+    private bool objectsVisible = true; 
+
     [SerializeField]
     GameObject bubblePrefab;
 
@@ -40,7 +44,12 @@ public class BubbleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ToggleVisibility(false);
+        ToggleVisibility(objectsVisible);
+    }
+
+    void OnValidate()
+    {
+        ToggleVisibility(objectsVisible);
     }
 
     private void ToggleVisibility(bool visible)
@@ -55,12 +64,27 @@ public class BubbleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TestBPM();
+
+
         if((cooldown -= Time.deltaTime) <= 0)
         {
             Debug.Log("Bubble Spawn");
-            //spawn bubble
+
+            GameObject target = getTarget();
+            Vector3 spawnPoint = target.transform.position;
+            spawnPoint.y = minY.transform.position.y;
+
+            Instantiate(bubblePrefab, spawnPoint, transform.rotation);
+
             cooldown = 60/BPM;
         }
+    }
+
+    private void TestBPM()
+    {
+        int maxBubbles = 600;
+        BPM = maxBubbles * (Time.time / 120) % maxBubbles;
     }
 
     //gets new target for bubble to follow
