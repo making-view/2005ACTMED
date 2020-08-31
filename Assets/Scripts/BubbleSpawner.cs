@@ -84,7 +84,7 @@ public class BubbleSpawner : MonoBehaviour
     private void TestBPM()
     {
         int maxBubbles = 600;
-        BPM = maxBubbles * (Time.time / 120) % maxBubbles;
+        BPM = (maxBubbles * (Time.time / 120) % maxBubbles + 1);
     }
 
     //gets new target for bubble to follow
