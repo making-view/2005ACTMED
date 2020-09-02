@@ -103,7 +103,7 @@ public class BubbleSpawner : MonoBehaviour
 
         ToggleVisibility(objectsVisible);
     }
-
+     
     private void ToggleVisibility(bool visible)
     {
         //make target meshes invisible
@@ -161,7 +161,7 @@ public class BubbleSpawner : MonoBehaviour
 
         Debug.Log("random: " + random + " VS " + positivePercentage);
 
-        if (random <= positivePercentage)
+        if (random < positivePercentage)
             return getPositive();
         else return getNegative();
     }
