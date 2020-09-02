@@ -37,6 +37,8 @@ public class Bubble : MonoBehaviour
 
     private Rigidbody body = null;
 
+    private float size = 0.01f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,7 @@ public class Bubble : MonoBehaviour
         text = this.GetComponentInChildren<Text>();
         LookAtConstraint lookat = this.GetComponentInChildren<LookAtConstraint>();
 
+        //make bubbles follow camera
         GameObject camera = GameObject.FindObjectOfType<Camera>().gameObject;
         ConstraintSource constraint = new ConstraintSource();
         constraint.weight = 1;
@@ -71,6 +74,13 @@ public class Bubble : MonoBehaviour
 
     void Update()
     {
+        if (size < Mathf.PI / 2)
+        {
+            size += Time.deltaTime;
+            float scale = Mathf.Sin(size);
+            transform.localScale = new Vector3(scale, scale, scale);
+        }
+
         Vector3 dir = CalculateDir();
 
         //make follow coordinate based

@@ -249,10 +249,67 @@ MonoBehaviour:
   - {fileID: 1815964178}
   minY: {fileID: 1516903593}
   maxY: {fileID: 598518229}
-  positiveThoughts: []
-  negativeThoughts: []
+  positiveThoughts:
+  - "\u2018Jeg er verdens beste menneske\u2019"
+  - "\u2018Jeg dummer meg aldri ut\u2019"
+  - "\u2018Jeg har det aldri vondt\u2019"
+  - "\u2018Jeg er best p\xE5 alt\u2019"
+  - "\u2018Jeg gj\xF8r alt p\xE5 egenh\xE5nd\u2019"
+  - "\u2018Alt er perfekt n\xE5\u2019"
+  - "\u2018Jeg har bare gode minner\u2019"
+  - "\u2018Jeg er best\u2019"
+  - "\u2018Jeg er sterkest\u2019"
+  - "\u2018ingenting kan s\xE5re meg\u2019"
+  - "\u2018ingenting g\xE5r galt\u2019"
+  - "\u2018Jeg er alltid lykkelig\u2019"
+  - "\u2018Det blir bra uansett\u2019"
+  - "\u2018alle liker meg\u2019"
+  - "'Jeg er verdens smarteste\u2019"
+  - "\u2018Alle elsker meg\u2019"
+  - "\u2018jeg er et fantastisk menneske\u2019 "
+  - "\u2018Jeg klarer alt\u2019 "
+  - "\u2018alt g\xE5r bra for meg\u2019 "
+  - "\u2018noe forferdelig kommer aldri til \xE5 skje\u2019 "
+  negativeThoughts:
+  - "\u2018Jeg er ikke god nok\u2019"
+  - "\u2018Tenk om jeg dummer meg ut\u2019"
+  - "\u2018Det blir aldri bedre\u2019"
+  - "\u2018Jeg burde bare ta meg sammen\u2019"
+  - "\u2018Jeg burde klare det bedre\u2019"
+  - "\u2018Jeg burde klare ting p\xE5 egenh\xE5nd\u2019"
+  - "\u2018Jeg er helt alene\u2019"
+  - "\u2018Alt var bedre f\xF8r\u2019"
+  - "\u2018Jeg burde v\xE6re glad\u2019"
+  - "\u2018Jeg burde ikke v\xE6re redd\u2019"
+  - "\u2018Tenk om jeg blir avvist\u2019"
+  - "\u2018Jeg har for mange vonde minner\u2019"
+  - "\u2018Jeg har ingen selvtillit\u2019"
+  - "\u2018Jeg er svak\u2019"
+  - "\u2018Jeg gir alltid opp\u2019"
+  - "\u2018Jeg er s\xE5rbar\u2019"
+  - "\u2018Tenk om jeg ikke klarer det\u2019"
+  - "\u2018Jeg er ulykkelig\u2019"
+  - "\u2018Jeg klarer ikke motst\xE5 fristelser\u2019"
+  - "\u2018Det er ikke noe vits\u2019"
+  - "\u2018Det blir ikke bra uansett\u2019"
+  - "\u2018Jeg er den eneste i verden som er ensom\u2019"
+  - "\u2018Jeg er en fiasko\u2019"
+  - "\u2018Tenk om noen s\xE5 meg n\xE5\u2019"
+  - "\u2018Jeg f\xE5r ikke til noe\u2019"
+  - "\u2018Jeg burde v\xE6rt bedre\u2019"
+  - "\u2018Jeg burde gjort mer\u2019"
+  - "\u2018Jeg burde tjent mer penger\u2019"
+  - "\u2018Jeg er stygg\u2019"
+  - "Jeg er dum\u2019"
+  - "\u2018Ingen elsker meg\u2019"
+  - "\u2018jeg er et d\xE5rlig menneske\u2019 "
+  - "\u2018Jeg klarer ingenting av det jeg kunne f\xF8r\u2019 "
+  - "\u2018Ingen liker meg\u2019 "
+  - "\u2018alt g\xE5r galt for meg\u2019 "
+  - "\u2018noe forferdelig kommer til \xE5 skje\u2019 "
+  - "\u2018jeg klarer det ikke\u2019"
   BPM: 65
-  positivePercentage: 50
+  positivePercentage: 0
 --- !u!136 &99205785
 CapsuleCollider:
   m_ObjectHideFlags: 0
