@@ -1,10 +1,14 @@
 ﻿using Oculus.Platform;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class BubbleSpawner : MonoBehaviour
 {
+    //thoughts in files
+    private string positive;
+    private string negative;
 
     [SerializeField]
     private bool objectsVisible = true; 
@@ -39,19 +43,67 @@ public class BubbleSpawner : MonoBehaviour
     //amount of bubbles containing positive messagess
     [SerializeField]
     [Range(0, 100)]
-    private float positivePercentage = 0;
+    private int positivePercentage = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        //toggle debug objects
         ToggleVisibility(objectsVisible);
+    }
+
+    //returns if file found or not and debug logs
+    bool FindFile (string filename)
+    {
+        if (File.Exists(filename))
+        {
+            Debug.Log("found: " + filename);
+            return true;
+        }
+       
+        Debug.LogError("can't find file: " + filename);
+        return false;
+    }
+
+    //parses lines of text file into list of strings
+    void ParseText(List<string> list, string file)
+    {
+        list = new List<string>();
+
+        int counter = 0;
+        string line;
+
+        System.IO.StreamReader stream =
+            new System.IO.StreamReader(file);
+        while ((line = stream.ReadLine()) != null)
+        {
+            Debug.Log("reading: " + line);
+            counter++;
+            list.Add(line);
+        }
+
+        stream.Close();
+        Debug.Log("There were " + counter + " lines.");
+
+        System.Console.ReadLine();
     }
 
     void OnValidate()
     {
+        // find files containing thoughts and parse them
+        positive = UnityEngine.Application.dataPath + "/positive.txt";
+        negative = UnityEngine.Application.dataPath + "/negative.txt";
+
+        if (FindFile(positive))
+            ParseText(positiveThoughts, positive);
+
+        if (FindFile(negative))
+            ParseText(negativeThoughts, negative);
+
+
         ToggleVisibility(objectsVisible);
     }
-
+     
     private void ToggleVisibility(bool visible)
     {
         //make target meshes invisible
@@ -64,13 +116,11 @@ public class BubbleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TestBPM();
+        //TestBPM();
 
 
         if((cooldown -= Time.deltaTime) <= 0)
         {
-            Debug.Log("Bubble Spawn");
-
             GameObject target = getTarget();
             Vector3 spawnPoint = target.transform.position;
             spawnPoint.y = minY.transform.position.y;
@@ -81,6 +131,7 @@ public class BubbleSpawner : MonoBehaviour
         }
     }
 
+    //rework to set BPM
     private void TestBPM()
     {
         int maxBubbles = 600;
@@ -106,7 +157,11 @@ public class BubbleSpawner : MonoBehaviour
     //get text to put in bubble
     public string getText()
     {
-        if (Random.Range(0, 100) <= positivePercentage)
+        int random = Random.Range(0, 100);
+
+        Debug.Log("random: " + random + " VS " + positivePercentage);
+
+        if (random < positivePercentage)
             return getPositive();
         else return getNegative();
     }
@@ -128,14 +183,14 @@ public class BubbleSpawner : MonoBehaviour
     //return a message from the list of negative thoughts
     private string getNegative()
     {
-        string positive = "Negative";
+        string negative = "Negative";
 
-        if (positiveThoughts.Count > 0)
+        if (negativeThoughts.Count > 0)
         {
-            positive = positiveThoughts[posn];
-            posn = (posn + 1) % positiveThoughts.Count;
+            negative = negativeThoughts[negn];
+            negn = (negn + 1) % negativeThoughts.Count;
         }
 
-        return positive;
+        return negative;
     }
 }

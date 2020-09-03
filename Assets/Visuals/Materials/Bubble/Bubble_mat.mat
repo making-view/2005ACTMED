@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Bubble_mat
   m_Shader: {fileID: 4800000, guid: f3a7ac78286768a48ae6540cbd288920, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _EXTREME_COLOURSWITCH_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -77,7 +77,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Extreme_ColourSwitch: 0
+    - _Extreme_ColourSwitch: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
