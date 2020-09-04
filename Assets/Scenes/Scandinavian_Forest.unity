@@ -308,7 +308,7 @@ MonoBehaviour:
   - "\u2018alt g\xE5r galt for meg\u2019 "
   - "\u2018noe forferdelig kommer til \xE5 skje\u2019 "
   - "\u2018jeg klarer det ikke\u2019"
-  BPM: 65
+  BPM: 60
   positivePercentage: 0
 --- !u!136 &99205785
 CapsuleCollider:
@@ -1951,7 +1951,7 @@ GameObject:
   - component: {fileID: 598518233}
   - component: {fileID: 598518232}
   m_Layer: 11
-  m_Name: DisappearPlane
+  m_Name: ZMax
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1965,7 +1965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598518229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.478, y: 2.298, z: -0}
+  m_LocalPosition: {x: -1.602, y: 0.869, z: 0}
   m_LocalScale: {x: 0.18988, y: 0.18988, z: 0.18988}
   m_Children: []
   m_Father: {fileID: 99205783}
@@ -2812,7 +2812,7 @@ GameObject:
   - component: {fileID: 1516903597}
   - component: {fileID: 1516903596}
   m_Layer: 11
-  m_Name: AppearPlane
+  m_Name: ZMin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2826,7 +2826,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516903593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.478, y: -0.89, z: -0}
+  m_LocalPosition: {x: -1.657, y: -0.461, z: 0}
   m_LocalScale: {x: 0.18988, y: 0.18988, z: 0.18988}
   m_Children: []
   m_Father: {fileID: 99205783}
