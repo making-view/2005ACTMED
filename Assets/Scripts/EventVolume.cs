@@ -15,11 +15,21 @@ using UnityEngine.Rendering;
 //This class plays sfx and handles particles and light sources for a volume of user area
 public class EventVolume : MonoBehaviour
 {
+    //stucts for handling delayed invokes
     [Serializable]
     private struct invokeable
     {
         public float delay;
         public UnityEvent ue;
+    }
+
+    //class for handling lights
+    [Serializable]
+    private class lighting
+    {
+        public Light raito;
+        public float intensity = 0;
+        public bool lightfade = false;
     }
 
     float timer = 0.0f; 
@@ -39,9 +49,7 @@ public class EventVolume : MonoBehaviour
     private AudioSource sfx_source = null;
 
     [SerializeField]
-    Light raito;
-    float intensity = 0;
-    bool lightfade = false;
+    List<lighting> lights;
 
     [SerializeField]
     List<ParticleSystem> currentParticles;
@@ -50,7 +58,10 @@ public class EventVolume : MonoBehaviour
     List<ParticleSystem> nextParticles;
 
     [SerializeField]
-    List<invokeable> invokeables;
+    List<invokeable> onEnterInvoke;
+
+    [SerializeField]
+    List<invokeable> onExitInvoke;
 
     [SerializeField]
     string customTag = "";
@@ -62,12 +73,15 @@ public class EventVolume : MonoBehaviour
     void Start()
     {
 
-        if (raito != null)
+        foreach (lighting l in lights)
         {
-            intensity = raito.intensity;
-            raito.intensity = 0;
+            if (l.raito != null)
+            {
+                l.intensity = l.raito.intensity;
+                l.raito.intensity = 0;
 
-            raito.enabled = false;
+                l.raito.enabled = false;
+            }
         }
 
         nr_source = gameObject.AddComponent<AudioSource>();
@@ -92,12 +106,7 @@ public class EventVolume : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {    //when fading in
-
-        Shader.SetGlobalFloat("NormalSwitch", Mathf.Clamp(Mathf.Sin(timer), 0, 1.0f));
-        Shader.SetGlobalFloat("ColourSwitch", Mathf.Clamp(Mathf.Sin(timer), 0, 1.0f));
-
-        Debug.Log("Switch: " + Mathf.Clamp(Mathf.Sin(timer), 0, 1.0f));
+    {    
 
         if(activated)
             timer += Time.deltaTime;
@@ -112,12 +121,12 @@ public class EventVolume : MonoBehaviour
         }
 
         //run events 
-        foreach(invokeable i in invokeables)
+        foreach(invokeable i in onEnterInvoke)
         {
-            if(i.delay <= timer)
+            if(i.delay < timer)
             {
                 i.ue.Invoke();
-                invokeables.Remove(i);
+                onEnterInvoke.Remove(i);
             }
         }
 
@@ -126,15 +135,20 @@ public class EventVolume : MonoBehaviour
 
     private void HandleLight()
     {
-        if (raito != null)
+        foreach (lighting l in lights)
         {
-            if (activated && lightfade && raito.intensity < intensity)
+
+            if (l.raito != null)
             {
-                raito.intensity += Time.deltaTime * 4.0f;
-            } //when fading back out
-            else if (!activated && raito.intensity > 0.0f)
-            {
-                raito.intensity -= Time.deltaTime * 4.0f;
+                if (activated && l.lightfade && l.raito.intensity < l.intensity)
+                {
+                    l.raito.intensity += Time.deltaTime * 4.0f;
+                    Debug.Log("increasing light intesity to: " + l.raito.intensity);
+                } //when fading back out
+                else if (!activated && l.raito.intensity > 0.0f)
+                {
+                    l.raito.intensity -= Time.deltaTime * 4.0f;
+                }
             }
         }
     }
@@ -183,12 +197,16 @@ public class EventVolume : MonoBehaviour
             sfx_source.Play();
         }
 
-        if(raito != null)
-            raito.enabled = true;
-
-
-        lightfade = true;
-
+        foreach (lighting l in lights)
+        {
+            //Debug.Log("enabling: " + l.raito.gameObject.name);
+            if (l.raito != null)
+            {
+                //Debug.Log("not null");
+                l.raito.enabled = true;
+                l.lightfade = true;
+            }
+        }
         if (currentParticles != null)
             foreach (ParticleSystem p in currentParticles)
             {

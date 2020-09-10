@@ -596,23 +596,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &38586569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38586567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1466ad22a82495d49acac1e8f4865674, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
-  instancedMaterial: {fileID: 0}
-  fadeTime: 3
-  texToFade: []
-  defaultTex: 1
 --- !u!1001 &51786576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2835,23 +2818,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 271002181}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &271002185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 271002182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1466ad22a82495d49acac1e8f4865674, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
-  instancedMaterial: {fileID: 0}
-  fadeTime: 3
-  texToFade: []
-  defaultTex: 1
 --- !u!114 &271002187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3402,13 +3368,34 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: a8b4a789fcf8e54488681b20a14ddbe0, type: 3}
   sfx: {fileID: 0}
-  raito: {fileID: 1004008069}
+  lights:
+  - raito: {fileID: 1004008069}
+    intensity: 0
+    lightfade: 0
+  - raito: {fileID: 1220673688}
+    intensity: 0
+    lightfade: 0
   currentParticles:
   - {fileID: 1192116426}
   nextParticles:
   - {fileID: 0}
-  invokeables: []
-  customTag: 
+  invokeables:
+  - delay: 14
+    ue:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1183321956}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  customTag: Cart
 --- !u!65 &332041759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3596,7 +3583,7 @@ Transform:
   m_LocalScale: {x: 0.20877, y: 1, z: 0.26179}
   m_Children: []
   m_Father: {fileID: 861510273}
-  m_RootOrder: 73
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!65 &340136891
 BoxCollider:
@@ -6254,6 +6241,12 @@ MonoBehaviour:
   fadeTime: 3
   texToFade: []
   defaultTex: 1
+--- !u!198 &612829524 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4597974219633420102, guid: e89381096b60ec94f86be136a040ff1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103113548}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &630451157
 GameObject:
   m_ObjectHideFlags: 0
@@ -6278,13 +6271,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630451157}
-  m_LocalRotation: {x: 0.29980016, y: 0.6404075, z: -0.64040625, w: -0.29979646}
+  m_LocalRotation: {x: 0.34040397, y: 0.5957156, z: -0.6185808, w: -0.3828916}
   m_LocalPosition: {x: -0.0642, y: 1.227, z: -0.6071099}
   m_LocalScale: {x: 0.19160478, y: 0.11721375, z: 0.18163}
   m_Children: []
   m_Father: {fileID: 703728424}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 140.172, y: 89.99999, z: -90}
+  m_LocalEulerAnglesHint: {x: 151.555, y: 93.814995, z: -90.19299}
 --- !u!108 &630451159
 Light:
   m_ObjectHideFlags: 0
@@ -6297,13 +6290,13 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8018868, g: 0.75152355, b: 0.5862852, a: 1}
-  m_Intensity: 6.2
-  m_Range: 8
-  m_SpotAngle: 71.7
+  m_Intensity: 8.51
+  m_Range: 11.67
+  m_SpotAngle: 51.057888
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -7049,12 +7042,12 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 440171aa1be6c9c47935ac76c3e383a3, type: 3}
   sfx: {fileID: 0}
-  raito: {fileID: 257612489}
+  lights: []
   currentParticles:
   - {fileID: 0}
   nextParticles: []
   invokeables: []
-  customTag: 
+  customTag: Cart
 --- !u!65 &665197210
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7734,13 +7727,45 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 79bbb0302aa32604abebf2b9d8ab5849, type: 3}
   sfx: {fileID: 0}
-  raito: {fileID: 630451159}
+  lights:
+  - raito: {fileID: 1118984712}
+    intensity: 0
+    lightfade: 0
+  - raito: {fileID: 630451159}
+    intensity: 0
+    lightfade: 0
   currentParticles:
   - {fileID: 0}
   nextParticles:
-  - {fileID: 0}
-  invokeables: []
-  customTag: 
+  - {fileID: 612829524}
+  invokeables:
+  - delay: 0
+    ue:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 612829524}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1175698381}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  customTag: Cart
 --- !u!65 &703728426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7752,8 +7777,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1.4943632}
+  m_Center: {x: 0, y: 0, z: 0.24718201}
 --- !u!23 &703728427
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9794,6 +9819,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b8447c3eba47b0a4a9689005e6a93bcc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8447c3eba47b0a4a9689005e6a93bcc, type: 3}
 --- !u!4 &850926428 stripped
@@ -9906,6 +9936,7 @@ Transform:
   - {fileID: 317743273}
   - {fileID: 930476060}
   - {fileID: 596297788}
+  - {fileID: 1096182269}
   - {fileID: 1878367931}
   - {fileID: 1085584858}
   - {fileID: 174310425}
@@ -9914,11 +9945,12 @@ Transform:
   - {fileID: 783972989}
   - {fileID: 1431275583}
   - {fileID: 1527251597}
+  - {fileID: 340136890}
   - {fileID: 2042133140}
   - {fileID: 1551719466}
   - {fileID: 1640531470}
   - {fileID: 216948138}
-  - {fileID: 1096182269}
+  - {fileID: 1962615901}
   - {fileID: 1555505266}
   - {fileID: 2054712479}
   - {fileID: 388260183}
@@ -9939,8 +9971,6 @@ Transform:
   - {fileID: 1632599929}
   - {fileID: 1139546783}
   - {fileID: 1271205316}
-  - {fileID: 340136890}
-  - {fileID: 1962615901}
   - {fileID: 661493221}
   - {fileID: 1723246703}
   - {fileID: 1487818026}
@@ -9994,10 +10024,10 @@ Transform:
   - {fileID: 2041645039}
   - {fileID: 1179291648}
   - {fileID: 1435843841}
+  - {fileID: 812211253}
   - {fileID: 169310455}
   - {fileID: 2002835030}
   - {fileID: 1318731312}
-  - {fileID: 812211253}
   - {fileID: 584448334}
   - {fileID: 656268614}
   - {fileID: 1963615138}
@@ -10141,13 +10171,13 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 440171aa1be6c9c47935ac76c3e383a3, type: 3}
   sfx: {fileID: 0}
-  raito: {fileID: 1753190139}
+  lights: []
   currentParticles:
   - {fileID: 0}
   nextParticles:
   - {fileID: 0}
   invokeables: []
-  customTag: 
+  customTag: Cart
 --- !u!65 &911723168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10354,13 +10384,13 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 440171aa1be6c9c47935ac76c3e383a3, type: 3}
   sfx: {fileID: 0}
-  raito: {fileID: 1721722149}
+  lights: []
   currentParticles:
-  - {fileID: 0}
+  - {fileID: 612829524}
   nextParticles:
   - {fileID: 0}
   invokeables: []
-  customTag: 
+  customTag: Cart
 --- !u!65 &918418911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11566,7 +11596,7 @@ Transform:
   m_LocalScale: {x: 0.20877, y: 1, z: 0.26179}
   m_Children: []
   m_Father: {fileID: 861510273}
-  m_RootOrder: 52
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!65 &1096182270
 BoxCollider:
@@ -12046,7 +12076,10 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 0b40017cc7bc0364a924357a39cc4de5, type: 3}
   sfx: {fileID: 0}
-  raito: {fileID: 1156391578}
+  lights:
+  - raito: {fileID: 1156391578}
+    intensity: 0
+    lightfade: 0
   currentParticles:
   - {fileID: 1046826699}
   nextParticles:
@@ -12067,7 +12100,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  customTag: 
+  customTag: Cart
 --- !u!65 &1108770963
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12245,6 +12278,98 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1117750628}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1118984710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1118984711}
+  - component: {fileID: 1118984712}
+  m_Layer: 0
+  m_Name: Realtime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1118984711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118984710}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.29200006, y: 1.43, z: 0.29834682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2039781770}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1118984712
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118984710}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0.9433962, g: 0.7340046, b: 0.29814878, a: 1}
+  m_Intensity: 6.56
+  m_Range: 7.0040245
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1001 &1130850287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13235,6 +13360,12 @@ Transform:
   m_Father: {fileID: 2084100702}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1175698381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8577287287772306440, guid: e89381096b60ec94f86be136a040ff1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103113548}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1179291647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18489,8 +18620,8 @@ Transform:
   m_LocalScale: {x: 7.2418685, y: 3.4829047, z: 8.432702}
   m_Children:
   - {fileID: 1794660694}
-  - {fileID: 636907052}
   - {fileID: 1575276794}
+  - {fileID: 636907052}
   m_Father: {fileID: 35286368}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18509,28 +18640,13 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 4159d3b88a930a94ca4e204357b2ea66, type: 3}
   sfx: {fileID: 0}
-  raito: {fileID: 1794660695}
+  lights: []
   currentParticles:
   - {fileID: 0}
   nextParticles:
   - {fileID: 0}
-  invokeables:
-  - delay: 8
-    ue:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1183321956}
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  customTag: 
+  invokeables: []
+  customTag: Cart
 --- !u!65 &1669151716
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18542,8 +18658,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.98970574}
+  m_Center: {x: 0, y: 0, z: 0.23625444}
 --- !u!23 &1669151717
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21686,7 +21802,7 @@ Transform:
   m_LocalScale: {x: 0.20877, y: 1, z: 0.26179}
   m_Children: []
   m_Father: {fileID: 861510273}
-  m_RootOrder: 74
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!65 &1962615902
 BoxCollider:
@@ -22687,6 +22803,12 @@ MonoBehaviour:
   fadeTime: 3
   texToFade: []
   defaultTex: 1
+--- !u!4 &2039781770 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8189399191651098338, guid: e89381096b60ec94f86be136a040ff1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103113548}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2041645038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23674,6 +23796,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 703728424}
     m_Modifications:
+    - target: {fileID: 4597974219614687330, guid: e89381096b60ec94f86be136a040ff1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597974219633420102, guid: e89381096b60ec94f86be136a040ff1b,
+        type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597974219633420102, guid: e89381096b60ec94f86be136a040ff1b,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772566568528239123, guid: e89381096b60ec94f86be136a040ff1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5057400375747936109, guid: e89381096b60ec94f86be136a040ff1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23748,6 +23890,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StrawHuts
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577287287772306440, guid: e89381096b60ec94f86be136a040ff1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8919885428293933816, guid: e89381096b60ec94f86be136a040ff1b,
         type: 3}
