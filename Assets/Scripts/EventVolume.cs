@@ -1,12 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Rendering;
+
+
+
+
 
 //This class plays sfx and handles particles and light sources for a volume of user area
 public class EventVolume : MonoBehaviour
 {
+    [Serializable]
+    private struct invokeable
+    {
+        public float delay;
+        public UnityEvent ue;
+    }
+
+
+
+
+    float timer = 0.0f; 
+
     bool activated = false;
     bool done = false;
+
+    [SerializeField]
+    float volume = 0.8f;
 
     [SerializeField]
     AudioClip narration = null;
@@ -19,7 +44,6 @@ public class EventVolume : MonoBehaviour
     [SerializeField]
     Light raito;
     float intensity = 0;
-    float fadespeed = 4.0f;
     bool lightfade = false;
 
     [SerializeField]
@@ -29,13 +53,19 @@ public class EventVolume : MonoBehaviour
     List<ParticleSystem> nextParticles;
 
     [SerializeField]
-    string tag = "";
+    List<invokeable> invokeables;
 
+    [SerializeField]
+    string customTag = "";
+
+
+    float shadertest = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(raito != null)
+
+        if (raito != null)
         {
             intensity = raito.intensity;
             raito.intensity = 0;
@@ -44,8 +74,10 @@ public class EventVolume : MonoBehaviour
         }
 
         nr_source = gameObject.AddComponent<AudioSource>();
+        nr_source.volume = volume;
         nr_source.spatialize = false;
         sfx_source = gameObject.AddComponent<AudioSource>();
+        sfx_source.volume = volume;
         sfx_source.spatialize = false;
 
         if (sfx != null)
@@ -54,34 +86,60 @@ public class EventVolume : MonoBehaviour
         if (narration != null)
             nr_source.clip = narration;
 
-        foreach (ParticleSystem p in nextParticles)
-        {
-            p.Stop();
-        }
+        if (nextParticles != null)
+            foreach (ParticleSystem p in nextParticles)
+            {
+                p.Stop();
+            }
     }
 
     // Update is called once per frame
     void Update()
     {    //when fading in
 
-        if (raito != null)
-        {
-            if (activated && lightfade && raito.intensity < intensity)
-            {
-                raito.intensity += Time.deltaTime * fadespeed;
-            } //when fading back out
-            else if (!activated && raito.intensity > 0.0f)
-            {
-                raito.intensity -= Time.deltaTime * fadespeed;
-            }
-        }
-        //if you should fade back out
+        Shader.SetGlobalFloat("NormalSwitch", Mathf.Clamp(Mathf.Sin(timer), 0, 1.0f));
+        Shader.SetGlobalFloat("ColourSwitch", Mathf.Clamp(Mathf.Sin(timer), 0, 1.0f));
+
+        Debug.Log("Switch: " + Mathf.Clamp(Mathf.Sin(timer), 0, 1.0f));
+
+        if(activated)
+            timer += Time.deltaTime;
+
+        HandleLight();
+
+        //fade back out when narration ended
         if (narration != null && activated)
         {
             if (!nr_source.isPlaying)
                 Stop();
         }
 
+        //run events 
+        foreach(invokeable i in invokeables)
+        {
+            if(i.delay <= timer)
+            {
+                i.ue.Invoke();
+                invokeables.Remove(i);
+            }
+        }
+
+
+    }
+
+    private void HandleLight()
+    {
+        if (raito != null)
+        {
+            if (activated && lightfade && raito.intensity < intensity)
+            {
+                raito.intensity += Time.deltaTime * 4.0f;
+            } //when fading back out
+            else if (!activated && raito.intensity > 0.0f)
+            {
+                raito.intensity -= Time.deltaTime * 4.0f;
+            }
+        }
     }
 
     private void Stop()
@@ -98,9 +156,9 @@ public class EventVolume : MonoBehaviour
     {
         Debug.Log(other.gameObject.name + " entered " + this.gameObject.name);
 
-        if (!done && other.gameObject.tag.Equals(tag))
+        if (!done && other.gameObject.tag.Equals(customTag))
         {
-            Debug.Log(tag + " found");
+            Debug.Log(customTag + " found");
             activated = true;
             Play();
         }    
@@ -114,6 +172,7 @@ public class EventVolume : MonoBehaviour
 
     void Play()
     {
+
         //play narration
         if (narration != null)
         {
@@ -133,16 +192,17 @@ public class EventVolume : MonoBehaviour
 
         lightfade = true;
 
-        foreach (ParticleSystem p in currentParticles)
-        {
-            p.Stop();
-        }
+        if (currentParticles != null)
+            foreach (ParticleSystem p in currentParticles)
+            {
+                p.Stop();
+            }
 
-
-        foreach (ParticleSystem p in nextParticles)
-        {
-            p.Play();
-        }
+        if (nextParticles != null)
+            foreach (ParticleSystem p in nextParticles)
+            {
+                p.Play();
+            }
     }
     
 }
