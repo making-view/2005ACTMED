@@ -40,6 +40,10 @@ public class BubbleSpawner : MonoBehaviour
     public float BPM = 60;
     float cooldown = 1;
 
+    private List<GameObject> bubbles = null;
+
+    public bool active = false;
+
     //amount of bubbles containing positive messagess
     [SerializeField]
     [Range(0, 100)]
@@ -50,6 +54,7 @@ public class BubbleSpawner : MonoBehaviour
     {
         //toggle debug objects
         ToggleVisibility(objectsVisible);
+        bubbles = new List<GameObject>();
     }
 
     //returns if file found or not and debug logs
@@ -77,13 +82,13 @@ public class BubbleSpawner : MonoBehaviour
             new System.IO.StreamReader(file);
         while ((line = stream.ReadLine()) != null)
         {
-            Debug.Log("reading: " + line);
+            //Debug.Log("reading: " + line);
             counter++;
             list.Add(line);
         }
 
         stream.Close();
-        Debug.Log("There were " + counter + " lines.");
+        //Debug.Log("There were " + counter + " lines.");
 
         System.Console.ReadLine();
     }
@@ -91,8 +96,8 @@ public class BubbleSpawner : MonoBehaviour
     void OnValidate()
     {
         // find files containing thoughts and parse them
-        positive = UnityEngine.Application.dataPath + "/positive.txt";
-        negative = UnityEngine.Application.dataPath + "/negative.txt";
+        positive = UnityEngine.Application.dataPath + "/Localized/positive.txt";
+        negative = UnityEngine.Application.dataPath + "/Localized/negative.txt";
 
         if (FindFile(positive))
             ParseText(positiveThoughts, positive);
@@ -118,16 +123,17 @@ public class BubbleSpawner : MonoBehaviour
     {
         //TestBPM();
 
+        if(active) {
+            if ((cooldown -= Time.deltaTime) <= 0)
+            {
+                GameObject target = getTarget();
+                Vector3 spawnPoint = target.transform.position;
+                spawnPoint.y = minY.transform.position.y;
 
-        if((cooldown -= Time.deltaTime) <= 0)
-        {
-            GameObject target = getTarget();
-            Vector3 spawnPoint = target.transform.position;
-            spawnPoint.y = minY.transform.position.y;
+                bubbles.Add(Instantiate(bubblePrefab, spawnPoint, transform.rotation));
 
-            Instantiate(bubblePrefab, spawnPoint, transform.rotation);
-
-            cooldown = 60/BPM;
+                cooldown = 60 / BPM;
+            }
         }
     }
 
@@ -159,7 +165,7 @@ public class BubbleSpawner : MonoBehaviour
     {
         int random = Random.Range(0, 100);
 
-        Debug.Log("random: " + random + " VS " + positivePercentage);
+        //Debug.Log("random: " + random + " VS " + positivePercentage);
 
         if (random < positivePercentage)
             return getPositive();
@@ -192,5 +198,11 @@ public class BubbleSpawner : MonoBehaviour
         }
 
         return negative;
+    }
+
+    public void destroyBubbles()
+    {
+        foreach (GameObject g in bubbles)
+            Destroy(g);
     }
 }

@@ -20,14 +20,14 @@ public class Bubble : MonoBehaviour
 
     private float offset;
 
-    [Range(0.0f, 100f)]
+    [Range(0.0f, 1000f)]
     public float speed = 50f;
 
     [Range(0.0f, 100f)]
     public float devMag = 50f;
 
-    [Range(0.0f, 10f)]
-    public float maxFollow = 3.0f;
+    [Range(0.0f, 20f)]
+    public float maxFollow = 20.0f;
 
     [Range(0.0f, 10f)]
     public float followOrAscend = 0.5f;
@@ -36,6 +36,7 @@ public class Bubble : MonoBehaviour
     //public float deviation = 1;
 
     private Rigidbody body = null;
+    private bool upward = true;
 
     private float size = 0.01f;
 
@@ -93,10 +94,20 @@ public class Bubble : MonoBehaviour
 
         body.AddForce(devec);
 
+        //go down when all the way up
         if (transform.position.y > YMax.transform.position.y)
         {
             //Respawn();
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            upward = false;
+        }
+
+        //go up when all the way down
+        if (transform.position.y < YMin.transform.position.y)
+        {
+            //Respawn();
+            //Destroy(this.gameObject);
+            upward = true;
         }
 
         //increase in size and float around XZTarget
@@ -105,13 +116,18 @@ public class Bubble : MonoBehaviour
 
     private Vector3 CalculateDir()
     {
+        float up = followOrAscend;
+
+        //go down if not going upward
+        if (!upward)
+            up = -up;
+
         
         //calculate direction vector
         return new Vector3(
             Mathf.Clamp(XZTarget.transform.position.x - transform.position.x, -maxFollow, maxFollow),
-            followOrAscend,
-            Mathf.Clamp(XZTarget.transform.position.z - transform.position.z, -maxFollow, maxFollow))
-            .normalized;
+            up,
+            Mathf.Clamp(XZTarget.transform.position.z - transform.position.z, -maxFollow, maxFollow));
     }
 
     //Todo, fade bubble instead of just moving it
