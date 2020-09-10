@@ -22,9 +22,6 @@ public class EventVolume : MonoBehaviour
         public UnityEvent ue;
     }
 
-
-
-
     float timer = 0.0f; 
 
     bool activated = false;
