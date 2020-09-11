@@ -3379,22 +3379,8 @@ MonoBehaviour:
   - {fileID: 1192116426}
   nextParticles:
   - {fileID: 0}
-  invokeables:
-  - delay: 14
-    ue:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1183321956}
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  onEnterInvoke: []
+  onExitInvoke: []
   customTag: Cart
 --- !u!65 &332041759
 BoxCollider:
@@ -7046,7 +7032,8 @@ MonoBehaviour:
   currentParticles:
   - {fileID: 0}
   nextParticles: []
-  invokeables: []
+  onEnterInvoke: []
+  onExitInvoke: []
   customTag: Cart
 --- !u!65 &665197210
 BoxCollider:
@@ -7738,33 +7725,8 @@ MonoBehaviour:
   - {fileID: 0}
   nextParticles:
   - {fileID: 612829524}
-  invokeables:
-  - delay: 0
-    ue:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 612829524}
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1175698381}
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+  onEnterInvoke: []
+  onExitInvoke: []
   customTag: Cart
 --- !u!65 &703728426
 BoxCollider:
@@ -8829,6 +8791,26 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &798969162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 02fc9ad14be6d5e4ab8c577fa655f2bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1575276793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &798969163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798969162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175898b6626fc63408d6927e314085f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalRange: 0.5
+  spin: 10
 --- !u!1 &801330069
 GameObject:
   m_ObjectHideFlags: 0
@@ -10176,7 +10158,8 @@ MonoBehaviour:
   - {fileID: 0}
   nextParticles:
   - {fileID: 0}
-  invokeables: []
+  onEnterInvoke: []
+  onExitInvoke: []
   customTag: Cart
 --- !u!65 &911723168
 BoxCollider:
@@ -10389,7 +10372,8 @@ MonoBehaviour:
   - {fileID: 612829524}
   nextParticles:
   - {fileID: 0}
-  invokeables: []
+  onEnterInvoke: []
+  onExitInvoke: []
   customTag: Cart
 --- !u!65 &918418911
 BoxCollider:
@@ -12084,22 +12068,8 @@ MonoBehaviour:
   - {fileID: 1046826699}
   nextParticles:
   - {fileID: 1192116426}
-  invokeables:
-  - delay: 4
-    ue:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 271002187}
-          m_MethodName: Activate
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  onEnterInvoke: []
+  onExitInvoke: []
   customTag: Cart
 --- !u!65 &1108770963
 BoxCollider:
@@ -13360,12 +13330,6 @@ Transform:
   m_Father: {fileID: 2084100702}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1175698381 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8577287287772306440, guid: e89381096b60ec94f86be136a040ff1b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2103113548}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1179291647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18645,7 +18609,8 @@ MonoBehaviour:
   - {fileID: 0}
   nextParticles:
   - {fileID: 0}
-  invokeables: []
+  onEnterInvoke: []
+  onExitInvoke: []
   customTag: Cart
 --- !u!65 &1669151716
 BoxCollider:
