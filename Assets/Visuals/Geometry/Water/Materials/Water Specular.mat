@@ -9,8 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Water Specular
   m_Shader: {fileID: 4800000, guid: 98d105e92ba64348836d56720147264a, type: 3}
-  m_ShaderKeywords: EFFECT_ALBEDO2 EFFECT_MICROWAVE EFFECT_NORMALMAP2 EFFECT_PARALLAX
-    EFFECT_REFLECTION
+  m_ShaderKeywords: EFFECT_ALBEDO2 EFFECT_NORMALMAP2 EFFECT_PARALLAX EFFECT_REFLECTION
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -110,7 +109,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap1:
         m_Texture: {fileID: 2800000, guid: caecb7663e614c0e8d1cf595085ee759, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Scale: {x: 29.85, y: 20}
         m_Offset: {x: 0, y: 0}
     - _NormalMap2:
         m_Texture: {fileID: 2800000, guid: 0402941ce4e74e24abb686de97205888, type: 3}
@@ -196,8 +195,8 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: -0.2
     - _ParallaxAmount: -0.1
-    - _ParallaxFlow: 3
-    - _ParallaxMapTiling: 1
+    - _ParallaxFlow: -3
+    - _ParallaxMapTiling: 3.32
     - _ParallaxNormal2Offset: 1
     - _ParallaxScale: 0.35
     - _Radius: 1
