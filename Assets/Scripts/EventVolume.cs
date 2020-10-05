@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
@@ -48,8 +49,7 @@ public class EventVolume : MonoBehaviour
     AudioClip sfx = null;
     private AudioSource sfx_source = null;
 
-    [SerializeField]
-    List<lighting> lights;
+    private List<lighting> lights;
 
     [SerializeField]
     List<ParticleSystem> currentParticles;
@@ -72,6 +72,17 @@ public class EventVolume : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //add existing lights
+        lights = new List<lighting>();
+        var lComponents = GetComponentsInChildren<Light>();
+        foreach (Light l in lComponents)
+            lights.Add(
+                new lighting
+                {
+                    raito = l,
+                    intensity = l.intensity,
+                    lightfade = false
+                });
 
         foreach (lighting l in lights)
         {
@@ -79,11 +90,11 @@ public class EventVolume : MonoBehaviour
             {
                 l.intensity = l.raito.intensity;
                 l.raito.intensity = 0;
-
                 l.raito.enabled = false;
             }
         }
 
+        //create audiosources
         nr_source = gameObject.AddComponent<AudioSource>();
         nr_source.volume = volume;
         nr_source.spatialize = false;
