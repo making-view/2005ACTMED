@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using Oculus;
 using System;
 using System.Linq;
+using UnityEditorInternal;
 
 public class TravelVolume : MonoBehaviour
 {
@@ -17,10 +18,13 @@ public class TravelVolume : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("hit by " + collider.gameObject.name);
-
         if (collider.gameObject.tag.Equals("Player"))
         {
+            if (fade == null)
+            {
+                fade = GameObject.Find("CenterEyeAnchor").GetComponent<OVRScreenFade>();
+            }
+
             Debug.Log("hit by player");
             StartCoroutine(loadScene());
         }
@@ -29,15 +33,20 @@ public class TravelVolume : MonoBehaviour
 
     private IEnumerator loadScene()
     {
-        Debug.Log("Starting fade");
+        if (fade != null)
+        {
+            Debug.Log("Starting fade");
 
-        fade.fadeOnStart = true;
-        fade.fadeColor = Color.black;
-        fade.fadeTime = 2.0f;
-        fade.FadeOut();
-        Debug.Log("fading");
+            fade.fadeOnStart = true;
+            fade.fadeColor = Color.black;
+            fade.fadeTime = 1.5f;
+            fade.FadeOut();
 
-        yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(2.0f);
+        }
+        else
+            Debug.Log("fade == null - " + this.gameObject.name);
+
         StartLoading(); 
     }
 
