@@ -55,6 +55,9 @@ public class BubbleSpawner : MonoBehaviour
         //toggle debug objects
         ToggleVisibility(objectsVisible);
         bubbles = new List<GameObject>();
+
+        if (BPM > 0)
+            active = true;
     }
 
     //returns if file found or not and debug logs

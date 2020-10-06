@@ -392,7 +392,7 @@ MonoBehaviour:
   - "\u2018alt g\xE5r galt for meg\u2019 "
   - "\u2018noe forferdelig kommer til \xE5 skje\u2019 "
   - "\u2018jeg klarer det ikke\u2019"
-  BPM: 60
+  BPM: 0
   active: 0
   positivePercentage: 0
 --- !u!136 &99205785
@@ -2772,6 +2772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Bridge
+  fade: {fileID: 240149241}
 --- !u!65 &1402883866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2880,6 +2881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Evo_Cave
+  fade: {fileID: 240149241}
 --- !u!65 &1499753392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3311,6 +3313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Evo_Cave
+  fade: {fileID: 240149241}
 --- !u!65 &2051030738
 BoxCollider:
   m_ObjectHideFlags: 0
