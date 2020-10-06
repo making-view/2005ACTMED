@@ -11671,7 +11671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.8
-  narration: {fileID: 8300000, guid: 440171aa1be6c9c47935ac76c3e383a3, type: 3}
+  narration: {fileID: 0}
   sfx: {fileID: 0}
   currentParticles:
   - {fileID: 0}
