@@ -20,15 +20,19 @@ public class Bubble : MonoBehaviour
 
     private float offset;
 
+    [Tooltip("Speed of bubble")]
     [Range(0.0f, 1000f)]
     public float speed = 50f;
 
+    [Tooltip("magnitude of deviation from path")]
     [Range(0.0f, 100f)]
     public float devMag = 50f;
 
+    [Tooltip("A limit to how fast the bubble can move to follow")]
     [Range(0.0f, 20f)]
     public float maxFollow = 20.0f;
 
+    [Tooltip("0 = only follow. 10 = ascent 10 times more than following")]
     [Range(0.0f, 10f)]
     public float followOrAscend = 0.5f;
 
@@ -38,11 +42,19 @@ public class Bubble : MonoBehaviour
     private Rigidbody body = null;
     private bool upward = true;
 
+    [SerializeField]
+    private bool clockwise = true;
+
     private float size = 0.01f;
 
     // Start is called before the first frame update
     void Start()
     {
+        //50% chance of going clockwise
+        if (UnityEngine.Random.Range(0, 1.0f) > 0.5f)
+            clockwise = false;
+
+        //get references 
         body = this.GetComponent<Rigidbody>();
         text = this.GetComponentInChildren<Text>();
         LookAtConstraint lookat = this.GetComponentInChildren<LookAtConstraint>();
@@ -59,8 +71,7 @@ public class Bubble : MonoBehaviour
 
         if (parent != null)
         {
-            Debug.Log("topbot set");
-
+            //Debug.Log("topbot set");
             YMin = parent.minY;
             YMax = parent.maxY;
         }
@@ -89,8 +100,12 @@ public class Bubble : MonoBehaviour
 
         body.AddForce(dir * speed * Time.deltaTime);
 
+        var deviate = devMag;
 
-        Vector3 devec = new Vector3(Mathf.Sin(Time.time + offset), 0, Mathf.Cos(Time.time + offset)) * devMag * Time.deltaTime;
+        if (!clockwise)
+            deviate *= -1;
+
+        Vector3 devec = new Vector3(Mathf.Sin(Time.time + offset), 0, Mathf.Cos(Time.time + offset)) * deviate * Time.deltaTime;
 
         body.AddForce(devec);
 
