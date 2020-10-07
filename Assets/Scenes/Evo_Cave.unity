@@ -3883,8 +3883,7 @@ MonoBehaviour:
   sfx: {fileID: 0}
   currentParticles:
   - {fileID: 1192116426}
-  nextParticles:
-  - {fileID: 0}
+  nextParticles: []
   onEnterInvoke:
   - delay: 8
     ue:
@@ -11761,10 +11760,8 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 0}
   sfx: {fileID: 0}
-  currentParticles:
-  - {fileID: 0}
-  nextParticles:
-  - {fileID: 0}
+  currentParticles: []
+  nextParticles: []
   onEnterInvoke: []
   onExitInvoke: []
   customTag: Cart
@@ -23871,10 +23868,8 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 63c43502ed3b4324eb997f16d585a5ec, type: 3}
   sfx: {fileID: 0}
-  currentParticles:
-  - {fileID: 0}
-  nextParticles:
-  - {fileID: 0}
+  currentParticles: []
+  nextParticles: []
   onEnterInvoke: []
   onExitInvoke: []
   customTag: Cart
