@@ -66,9 +66,6 @@ public class EventVolume : MonoBehaviour
     [SerializeField]
     string customTag = "";
 
-
-    float shadertest = 0;
-
     // Start is called before the first frame update
     void Start()
     {
