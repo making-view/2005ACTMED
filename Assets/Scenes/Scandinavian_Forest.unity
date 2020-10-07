@@ -3313,7 +3313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Evo_Cave
-  fade: {fileID: 240149241}
+  fade: {fileID: 0}
 --- !u!65 &2051030738
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,6 +11,13 @@ public class Minecart : MonoBehaviour
     float timeElapsed = 0;
     float wait = 5;
 
+    [SerializeField]
+    float fadeTimer = 1.5f;
+
+    bool fading = false;
+
+    [SerializeField]
+    OVRScreenFade fade = null;
 
     [SerializeField]
     GameObject endposGO;
@@ -31,11 +38,45 @@ public class Minecart : MonoBehaviour
     {
         timeElapsed += Time.deltaTime;
 
-        if (!(timeElapsed > duration + wait))
+
+        if (timeElapsed > duration + wait - fadeTimer)
+        {
+            this.transform.position = Vector3.Lerp(startPos, endPos, (timeElapsed - wait) / duration);
+
+            if (fade == null)
+            {
+                fade = GameObject.Find("CenterEyeAnchor").GetComponent<OVRScreenFade>();
+
+                if (!fading)
+                {
+                    StartCoroutine(Travel());
+                    fading = true;
+                }
+            }
+        }
+        else if (!(timeElapsed > duration + wait))
             this.transform.position = Vector3.Lerp(startPos, endPos, (timeElapsed - wait) / duration);
         else
-        {
             SceneManager.LoadScene("Scandinavian_Forest");
+
+    }
+
+    IEnumerator Travel()
+    {
+        if (fade != null)
+        {
+            Debug.Log("fading out of cave");
+
+            fade.fadeOnStart = true;
+            fade.fadeColor = Color.white;
+            fade.fadeTime = fadeTimer;
+            fade.FadeOut();
+
+            yield return new WaitForSeconds(fadeTimer + 0.5f);
         }
+        else
+            Debug.Log("fade == null - " + this.gameObject.name);
+
+        //SceneManager.LoadScene("Scandinavian_Forest");
     }
 }
