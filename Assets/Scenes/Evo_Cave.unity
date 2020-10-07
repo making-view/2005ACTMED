@@ -5912,7 +5912,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483661522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 159}
+  m_LocalPosition: {x: 0, y: 0, z: 158}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 871508063}
@@ -8168,8 +8168,7 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 1121f0ca59ba62a40abee5429b7fc12d, type: 3}
   sfx: {fileID: 0}
-  currentParticles:
-  - {fileID: 0}
+  currentParticles: []
   nextParticles: []
   onEnterInvoke: []
   onExitInvoke: []
@@ -10071,8 +10070,7 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 0}
   sfx: {fileID: 0}
-  currentParticles:
-  - {fileID: 0}
+  currentParticles: []
   nextParticles: []
   onEnterInvoke: []
   onExitInvoke: []
@@ -11980,8 +11978,7 @@ MonoBehaviour:
   sfx: {fileID: 0}
   currentParticles:
   - {fileID: 612829524}
-  nextParticles:
-  - {fileID: 0}
+  nextParticles: []
   onEnterInvoke: []
   onExitInvoke: []
   customTag: Cart
@@ -21407,8 +21404,7 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 02c518ac9ee0c1f48b21e65d650afbd1, type: 3}
   sfx: {fileID: 0}
-  currentParticles:
-  - {fileID: 0}
+  currentParticles: []
   nextParticles: []
   onEnterInvoke: []
   onExitInvoke: []
