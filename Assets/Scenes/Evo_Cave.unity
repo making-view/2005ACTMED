@@ -10364,7 +10364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175898b6626fc63408d6927e314085f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalRange: 0.35
+  verticalRange: 0.3
   spin: 31.54
 --- !u!1 &801330069
 GameObject:
@@ -22798,7 +22798,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 02fc9ad14be6d5e4ab8c577fa655f2bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.11599514
+      value: 0.246
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02fc9ad14be6d5e4ab8c577fa655f2bf,
         type: 3}
