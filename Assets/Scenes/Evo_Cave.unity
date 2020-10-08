@@ -9461,6 +9461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   endposGO: {fileID: 414877351}
+  smooth: 1
   started: 0
   audiosource: {fileID: 0}
 --- !u!1001 &765258509
@@ -9771,7 +9772,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785398675}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.308, y: -3.8382773, z: -91.644005}
+  m_LocalPosition: {x: 8.308, y: -3.8382773, z: -90.01601}
   m_LocalScale: {x: 7.2418685, y: 3.4829047, z: 8.432702}
   m_Children:
   - {fileID: 1522465109}
@@ -16150,6 +16151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 20
   endposGO: {fileID: 1836759938}
+  smooth: 0
   started: 0
   audiosource: {fileID: 1183321959}
 --- !u!82 &1183321959
@@ -21156,7 +21158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482689007}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.308, y: -3.8382773, z: -77.113}
+  m_LocalPosition: {x: 8.308, y: -3.8382773, z: -75.485}
   m_LocalScale: {x: 7.2418685, y: 3.4829047, z: 8.432702}
   m_Children:
   - {fileID: 1781135625}
