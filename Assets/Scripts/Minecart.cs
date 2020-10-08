@@ -77,6 +77,6 @@ public class Minecart : MonoBehaviour
         else
             Debug.Log("fade == null - " + this.gameObject.name);
 
-        //SceneManager.LoadScene("Scandinavian_Forest");
+        SceneManager.LoadScene("Scandinavian_Forest");
     }
 }

@@ -156,6 +156,8 @@ public class EventVolume : MonoBehaviour
                 {
                     l.raito.intensity -= Time.deltaTime * 4.0f;
                 }
+                else if (l.lightfade && l.raito.intensity <= 0.0f)
+                    l.raito.enabled = false;
             }
         }
     }
