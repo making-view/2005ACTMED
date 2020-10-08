@@ -151,7 +151,6 @@ public class EventVolume : MonoBehaviour
                 if (activated && l.lightfade && l.raito.intensity < l.intensity)
                 {
                     l.raito.intensity += Time.deltaTime * 4.0f;
-                    Debug.Log("increasing light intesity to: " + l.raito.intensity);
                 } //when fading back out
                 else if (!activated && l.raito.intensity > 0.0f)
                 {
@@ -173,7 +172,6 @@ public class EventVolume : MonoBehaviour
     //when player enters trigger / new area
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name + " entered " + this.gameObject.name);
 
         if (!done && other.gameObject.tag.Equals(customTag))
         {
