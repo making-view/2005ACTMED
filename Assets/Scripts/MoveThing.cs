@@ -14,6 +14,9 @@ public class MoveThing : MonoBehaviour
     Vector3 endPos;
 
     [SerializeField]
+    bool smooth = false;
+
+    [SerializeField]
     private bool started = false;
     private bool soundPlayed = false;
     private float timeElapsed = 0;
@@ -36,14 +39,25 @@ public class MoveThing : MonoBehaviour
             timeElapsed += Time.deltaTime;
 
             if (!(timeElapsed > duration))
-                this.transform.position = Vector3.Lerp(startPos, endPos, timeElapsed / duration);
+            {
+                if (!smooth)
+                {
+                    this.transform.position = Vector3.Lerp(startPos, endPos, timeElapsed / duration);
+                }
+                else
+                {
+                    this.transform.position = Vector3.Lerp(startPos, endPos, Mathf.SmoothStep(0, 1, timeElapsed / duration));
+                }
+            }
             else
+            {
                 started = false;
+            }
         }
     }
 
-    //functions to play the movement
-    public void Play()
+        //functions to play the movement
+        public void Play()
     {
         this.transform.position = startPos;
         started = true;
