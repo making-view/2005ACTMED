@@ -3879,7 +3879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.8
-  narration: {fileID: 8300000, guid: 757dace90b0538349959834be791cc07, type: 3}
+  narration: {fileID: 8300000, guid: 39f8cdd227bfd6544abe7881a078fe9a, type: 3}
   sfx: {fileID: 0}
   currentParticles:
   - {fileID: 1192116426}
@@ -8165,7 +8165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.8
-  narration: {fileID: 8300000, guid: 1121f0ca59ba62a40abee5429b7fc12d, type: 3}
+  narration: {fileID: 8300000, guid: d65df8d3ec72d2340b6c1fd7f59c9dc1, type: 3}
   sfx: {fileID: 0}
   currentParticles: []
   nextParticles: []
@@ -8936,7 +8936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.8
-  narration: {fileID: 8300000, guid: 2909434c748235f4881bb424670bd748, type: 3}
+  narration: {fileID: 8300000, guid: d1226ea4dce99cb49b5bf898d319972c, type: 3}
   sfx: {fileID: 0}
   currentParticles: []
   nextParticles: []
@@ -10067,7 +10067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.8
-  narration: {fileID: 0}
+  narration: {fileID: 8300000, guid: 35ecb28d0a6677e4f83238bb302be9aa, type: 3}
   sfx: {fileID: 0}
   currentParticles: []
   nextParticles: []
@@ -11758,7 +11758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.8
-  narration: {fileID: 0}
+  narration: {fileID: 8300000, guid: 679b7c45b8ccd984a91b2a756a82465d, type: 3}
   sfx: {fileID: 0}
   currentParticles: []
   nextParticles: []
@@ -11971,7 +11971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.8
-  narration: {fileID: 8300000, guid: ae48f8c18eada7d4e8b5a1037fa7a82c, type: 3}
+  narration: {fileID: 8300000, guid: 8e30ec5a4f5513b4aa6a78d577e6f26a, type: 3}
   sfx: {fileID: 0}
   currentParticles:
   - {fileID: 612829524}
@@ -14521,7 +14521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.8
-  narration: {fileID: 8300000, guid: 4d7fb78a62fa8ed40a373e6520a66ee7, type: 3}
+  narration: {fileID: 8300000, guid: a6f7698ed54758743bc96871124f3a6a, type: 3}
   sfx: {fileID: 0}
   currentParticles:
   - {fileID: 1046826699}
@@ -20145,7 +20145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21399,7 +21399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.8
-  narration: {fileID: 8300000, guid: 02c518ac9ee0c1f48b21e65d650afbd1, type: 3}
+  narration: {fileID: 8300000, guid: cee5b6cd727fdd94abfca8bc0f343dc4, type: 3}
   sfx: {fileID: 0}
   currentParticles: []
   nextParticles: []
@@ -23866,7 +23866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.8
-  narration: {fileID: 8300000, guid: 63c43502ed3b4324eb997f16d585a5ec, type: 3}
+  narration: {fileID: 8300000, guid: 27067c8435bd2564aad6cd1bf58defab, type: 3}
   sfx: {fileID: 0}
   currentParticles: []
   nextParticles: []
@@ -28604,7 +28604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1969876774
 Transform:
   m_ObjectHideFlags: 0
