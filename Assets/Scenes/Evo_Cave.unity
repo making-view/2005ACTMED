@@ -9843,7 +9843,7 @@ MonoBehaviour:
   endposGO: {fileID: 414877351}
   smooth: 1
   started: 0
-  audiosource: {fileID: 0}
+  audioclip: {fileID: 0}
 --- !u!1001 &765258509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16520,7 +16520,7 @@ MonoBehaviour:
   endposGO: {fileID: 1836759938}
   smooth: 0
   started: 0
-  audiosource: {fileID: 1183321959}
+  audioclip: {fileID: 8300000, guid: e69d01db0fddefa459848c4365f2d207, type: 3}
 --- !u!82 &1183321959
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29796,7 +29796,7 @@ MonoBehaviour:
   endposGO: {fileID: 444513960}
   smooth: 1
   started: 0
-  audiosource: {fileID: 0}
+  audioclip: {fileID: 0}
 --- !u!1001 &2031713987
 PrefabInstance:
   m_ObjectHideFlags: 0
