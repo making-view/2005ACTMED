@@ -10149,7 +10149,7 @@ MonoBehaviour:
   endposGO: {fileID: 414877351}
   smooth: 1
   started: 0
-  audiosource: {fileID: 0}
+  audioclip: {fileID: 0}
 --- !u!4 &758759705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6778940197828232422, guid: ca23cf3ab73b0a34ea2360fa501f434b,
@@ -16930,7 +16930,7 @@ MonoBehaviour:
   endposGO: {fileID: 1836759938}
   smooth: 0
   started: 0
-  audiosource: {fileID: 1183321959}
+  audioclip: {fileID: 8300000, guid: e69d01db0fddefa459848c4365f2d207, type: 3}
 --- !u!82 &1183321959
 AudioSource:
   m_ObjectHideFlags: 0
@@ -32115,7 +32115,7 @@ MonoBehaviour:
   endposGO: {fileID: 444513960}
   smooth: 1
   started: 0
-  audiosource: {fileID: 0}
+  audioclip: {fileID: 0}
 --- !u!4 &2039781770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8189399191651098338, guid: e89381096b60ec94f86be136a040ff1b,

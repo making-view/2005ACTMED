@@ -22,6 +22,8 @@ public class MoveThing : MonoBehaviour
     private float timeElapsed = 0;
 
     [SerializeField]
+    AudioClip audioclip = null;
+
     AudioSource audiosource = null;
 
     // Start is called before the first frame update
@@ -29,6 +31,9 @@ public class MoveThing : MonoBehaviour
     {
         startPos = this.gameObject.transform.position;
         endPos = endposGO.transform.position;
+
+        audiosource = gameObject.AddComponent<AudioSource>();
+        audiosource.clip = audioclip;
     }
 
     // Update is called once per frame
