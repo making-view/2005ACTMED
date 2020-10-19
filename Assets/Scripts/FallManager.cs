@@ -132,6 +132,9 @@ public class FallManager : MonoBehaviour
             new Vector3(bridgeMiddle.position.x, lastSafeLocation.y, lastSafeLocation.z)
             -CalculateOffset();
 
+        foreach(Rigidbody r in rig.gameObject.GetComponentsInChildren<Rigidbody>())
+            r.velocity = Vector3.zero;
+
         yield return new WaitForSeconds(fadetime / 5);
 
         fader.fadeTime = 2.0f;
