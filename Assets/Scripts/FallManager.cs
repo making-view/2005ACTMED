@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FallManager : MonoBehaviour
 {
@@ -8,15 +9,18 @@ public class FallManager : MonoBehaviour
     private bool onBridge = true;
     private bool offBridgeLastFrame = false;
     private bool fallingOff = false;
+    
     [SerializeField] private string tagString = "";
 
-    [SerializeField] OVRCameraRig ovrRig;
+    [SerializeField] CharacterController rig;
     [SerializeField] Camera playerHead;
 
     OVRScreenFade fader = null;
 
     [SerializeField] float saveCooldown = 1.0f;
     private float maxSaveCooldown = 1.0f;
+
+    [SerializeField] Transform bridgeMiddle = null;
 
     Transform lastSafeLocationDebugTransform = null;
     Vector3 lastSafeLocation = Vector3.zero;
@@ -26,12 +30,13 @@ public class FallManager : MonoBehaviour
     Vector3 nextSafeLocation = Vector3.zero;
     Vector3 nextSafeLocationOffset = Vector3.zero;
 
+
     private void Start()
     {
         maxSaveCooldown = saveCooldown;
 
-        if (ovrRig == null)
-            ovrRig = GameObject.Find("OVRCameraRig").GetComponent<OVRCameraRig>();
+        if (rig == null)
+            rig = this.GetComponent<CharacterController>();
 
         if (playerHead == null)
             playerHead = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
@@ -46,18 +51,18 @@ public class FallManager : MonoBehaviour
         if (nextSafeLocationDebugTransform == null)
             nextSafeLocationDebugTransform = GameObject.Find("NextSafeLocation").GetComponent<Transform>();
 
-        nextSafeLocation = ovrRig.transform.position;
+        nextSafeLocation = rig.transform.position;
         nextSafeLocationOffset = CalculateOffset();
-        lastSafeLocation = ovrRig.transform.position;
+        lastSafeLocation = rig.transform.position;
         lastSafeLocationOffset = CalculateOffset();
     }
 
     private Vector3 CalculateOffset()
     {
         return new Vector3(
-                    playerHead.transform.position.x - ovrRig.transform.position.x,
+                    playerHead.transform.position.x - rig.transform.position.x,
                     0,
-                    playerHead.transform.position.z - ovrRig.transform.position.z);
+                    playerHead.transform.position.z - rig.transform.position.z);
     }
 
     // Update is called once per frame
@@ -88,14 +93,19 @@ public class FallManager : MonoBehaviour
                 {
                     lastSafeLocation = nextSafeLocation;
                     lastSafeLocationOffset = nextSafeLocationOffset;
-                    nextSafeLocation = ovrRig.transform.position;
+                    nextSafeLocation = rig.transform.position;
                     nextSafeLocationOffset = CalculateOffset();
                     UpdateDebug();
                     saveCooldown = maxSaveCooldown;
                 }
             }
             onBridge = false;
-        } 
+        }
+        else
+        {
+            offBridgeLastFrame = false;
+            onBridge = true;
+        }
     }
 
     //let the player fall for a little while, then fade out. Transport them back up and fade in.
@@ -106,17 +116,33 @@ public class FallManager : MonoBehaviour
         fader.fadeTime = fadetime/3;
 
         offBridgeLastFrame = false;
+
+
         //play falling sound or some stuff idk
+        var audio = GetComponent<AudioSource>();
+        audio.Stop();
+        audio.Play();
+
         yield return new WaitForSeconds(fadetime / 3);
         fader.FadeOut();
         yield return new WaitForSeconds(fadetime / 3);
         //problem for neste uke. This shit fuck yo
-        ovrRig.transform.position = lastSafeLocation + new Vector3(0.0f, 3.0f, 0.0f) /* + CalculateOffset() - lastSafeLocationOffset*/;
-        fader.FadeIn();
+        rig.enabled = false;
+        rig.gameObject.transform.position =
+            new Vector3(bridgeMiddle.position.x, lastSafeLocation.y, lastSafeLocation.z)
+            -CalculateOffset();
 
+        yield return new WaitForSeconds(fadetime / 5);
+
+        fader.fadeTime = 2.0f;
+        fader.FadeIn();
         onBridge = true;
         offBridgeLastFrame = false;
+        rig.enabled = true;
+        yield return new WaitForSeconds(fadetime / 3);
         fallingOff = false;
+
+
     }
 
     private void UpdateDebug()
@@ -128,7 +154,10 @@ public class FallManager : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (!onBridge && other.gameObject.tag.Equals(tagString))
+        {
+            offBridgeLastFrame = false;
             onBridge = true;
+        }
     }
 }
 
