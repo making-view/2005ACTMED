@@ -114,13 +114,18 @@ public class OVRScreenFade : MonoBehaviour
 		}
 	}
 
-	/// <summary>
-	/// Start a fade out
-	/// </summary>
-	public void FadeOut()
+    /// <summary>
+    /// Start a fade out
+    /// </summary>
+    public void FadeOut()
     {
-        StartCoroutine(Fade(0,1));
+        StartCoroutine(Fade(0, 1));
     }
+
+	public void FadeIn()
+	{
+		StartCoroutine(Fade(1, 0));
+	}
 
 
 	/// <summary>
