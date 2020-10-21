@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ButtonTutorial : MonoBehaviour
 {
@@ -12,11 +13,11 @@ public class ButtonTutorial : MonoBehaviour
         public KeyCode debugKey;
         public int numTimes;
         //[SerializeField] float cooldown;
-        //[SerializeField] Action eventAction;
     }
 
     //[SerializeField] private bool inOrder = true;
-    [SerializeField]  private List<ActionElem> actionList;
+    [SerializeField] private List<ActionElem> actionList;
+    [SerializeField] UnityEvent doAfterTutorial;
     private ActionElem currAction;
     int i = 0;
 
@@ -35,7 +36,23 @@ public class ButtonTutorial : MonoBehaviour
 
         if(OVRInput.GetDown(currAction.input) || Input.GetKeyDown(currAction.debugKey))
         {
+            //play celebratory sound, update GUI etc, idk
             Debug.Log("action done: " + currAction.input.ToString());
+            currAction.numTimes -= 1;
+
+            if(currAction.numTimes <= 0) //if done with task
+            {
+                i++;
+                if(i >= actionList.Count) //if done with entire list
+                {
+                    doAfterTutorial.Invoke();
+                    enabled = false;
+                }
+                else
+                {
+                    currAction = actionList[i];
+                }
+            }
         }
     }
 }
