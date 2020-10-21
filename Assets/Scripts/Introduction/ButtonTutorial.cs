@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class IntroTutorial : MonoBehaviour
+public class ButtonTutorial : MonoBehaviour
 {
     [Serializable]
     struct ActionElem
@@ -12,21 +13,21 @@ public class IntroTutorial : MonoBehaviour
         public KeyCode debugKey;
         public int numTimes;
         //[SerializeField] float cooldown;
-        //[SerializeField] Action eventAction;
     }
 
     //[SerializeField] private bool inOrder = true;
-    [SerializeField]  private List<ActionElem> actions;
+    [SerializeField] private List<ActionElem> actionList;
+    [SerializeField] UnityEvent doAfterTutorial;
     private ActionElem currAction;
     int i = 0;
 
     private void Start()
     {
-        if (actions.Count <= 0)
+        if (actionList.Count <= 0)
             Debug.LogWarning("empty tutorial " + gameObject.name);
         else
         {
-            currAction = actions[i];
+            currAction = actionList[i];
         }
     }
 
@@ -35,7 +36,23 @@ public class IntroTutorial : MonoBehaviour
 
         if(OVRInput.GetDown(currAction.input) || Input.GetKeyDown(currAction.debugKey))
         {
+            //play celebratory sound, update GUI etc, idk
             Debug.Log("action done: " + currAction.input.ToString());
+            currAction.numTimes -= 1;
+
+            if(currAction.numTimes <= 0) //if done with task
+            {
+                i++;
+                if(i >= actionList.Count) //if done with entire list
+                {
+                    doAfterTutorial.Invoke();
+                    enabled = false;
+                }
+                else
+                {
+                    currAction = actionList[i];
+                }
+            }
         }
     }
 }
