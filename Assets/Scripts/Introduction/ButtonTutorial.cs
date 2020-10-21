@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IntroTutorial : MonoBehaviour
+public class ButtonTutorial : MonoBehaviour
 {
     [Serializable]
     struct ActionElem
@@ -16,17 +16,17 @@ public class IntroTutorial : MonoBehaviour
     }
 
     //[SerializeField] private bool inOrder = true;
-    [SerializeField]  private List<ActionElem> actions;
+    [SerializeField]  private List<ActionElem> actionList;
     private ActionElem currAction;
     int i = 0;
 
     private void Start()
     {
-        if (actions.Count <= 0)
+        if (actionList.Count <= 0)
             Debug.LogWarning("empty tutorial " + gameObject.name);
         else
         {
-            currAction = actions[i];
+            currAction = actionList[i];
         }
     }
 
