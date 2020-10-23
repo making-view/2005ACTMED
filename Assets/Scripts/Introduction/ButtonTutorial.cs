@@ -19,8 +19,6 @@ public class ButtonTutorial : MonoBehaviour
     [SerializeField] UnityEvent doAfterTutorial;
     [SerializeField] TutorialGUI tutGUI = null;
 
-    int i = 0;
-
     private void Start()
     {
         if (actionList.Count <= 0)
@@ -36,28 +34,35 @@ public class ButtonTutorial : MonoBehaviour
 
     private void Update()
     {
-        CheckInOrder();
+        CheckOutOfOrder();
     }
 
 
-    private void CheckInOrder()
+    private void CheckOutOfOrder()
     {
-        if (OVRInput.GetDown(actionList[i].input) || Input.GetKeyDown(actionList[i].debugKey))
+        int actionsRemaining = 0;
+
+        foreach(ActionElem a in actionList)
         {
-            //play celebratory sound, update GUI etc, idk
-            actionList[i].numTimes -= 1;
-
-            UpdateGUI();
-
-            if (actionList[i].numTimes <= 0) //if done with task
+            if (OVRInput.GetDown(a.input) || Input.GetKeyDown(a.debugKey))
             {
-                i++;
-                if (i >= actionList.Count) //if done with entire list
+                if(a.numTimes > 0)
                 {
-                    Done();
+                    a.numTimes -= 1;
+                    if(a.numTimes == 0)
+                    {
+                        var audio = GetComponent<AudioSource>();
+                        audio.Play();
+                    }
                 }
+
             }
+            actionsRemaining += a.numTimes;
         }
+
+        UpdateGUI();
+        if (actionsRemaining <= 0)
+            Done();
     }
 
     private void Done()
@@ -72,6 +77,7 @@ public class ButtonTutorial : MonoBehaviour
         tutGUI.UpdateVariables();
     }
 
+    //set max targets for actions
     private void SetGUI()
     {
         if (tutGUI == null)
@@ -91,6 +97,7 @@ public class ButtonTutorial : MonoBehaviour
             }
     }
 
+    //update current actions done towards target
     private void UpdateGUI()
     {
         foreach (ActionElem a in actionList)

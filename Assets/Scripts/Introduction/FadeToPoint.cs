@@ -66,7 +66,7 @@ public class FadeToPoint : MonoBehaviour
         var camPos = startRig.GetComponentInChildren<Camera>().transform.position;
         var offset = new Vector3(camPos.x - startRig.transform.position.x, 0, camPos.z - startRig.transform.position.z);
 
-        startRig.transform.position = endPosition.transform.position + offset;
+        startRig.transform.position = endPosition.transform.position - offset;
         startRig.transform.rotation = endPosition.transform.rotation;
         startRig.transform.parent = endPosition.transform;
 
