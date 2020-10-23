@@ -18864,7 +18864,17 @@ PrefabInstance:
     - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
         type: 3}
       propertyPath: BPM
-      value: 35
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
+        type: 3}
+      propertyPath: numBublees
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
+        type: 3}
+      propertyPath: active
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8197029773641535150, guid: d423fdb688856404883d3186608568ff,
         type: 3}

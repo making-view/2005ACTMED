@@ -34,6 +34,7 @@ public class BubbleSpawner : MonoBehaviour
     //bubbles per minute
     [Range(0, 600)]
     public float BPM = 60;
+    public float numBublees = 50;
     float cooldown = 1;
 
     private List<GameObject> bubbles = null;
@@ -123,15 +124,27 @@ public class BubbleSpawner : MonoBehaviour
         if(active) {
             if ((cooldown -= Time.deltaTime) <= 0)
             {
-                GameObject target = GetTarget();
-                Vector3 spawnPoint = target.transform.position;
-                spawnPoint.y = minY.transform.position.y;
-
-                bubbles.Add(Instantiate(bubblePrefab, spawnPoint, transform.rotation));
+                SpawnBuuuble();
 
                 cooldown = 60 / BPM;
             }
+
+            if (bubbles.Count > numBublees)
+            {
+                var buble = bubbles[0];
+                bubbles.Remove(buble);
+                Destroy(buble);
+            }
         }
+    }
+
+    private void SpawnBuuuble()
+    {
+        GameObject target = GetTarget();
+        Vector3 spawnPoint = target.transform.position;
+        spawnPoint.y = minY.transform.position.y;
+
+        bubbles.Add(Instantiate(bubblePrefab, spawnPoint, transform.rotation));
     }
 
     //gets new target for bubble to follow
