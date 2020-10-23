@@ -78,8 +78,8 @@ public class Bubble : MonoBehaviour
 
         offset = UnityEngine.Random.Range(0, Mathf.PI);
 
-        text.text = parent.getText();
-        XZTarget = parent.getTarget();
+        text.text = parent.GetText();
+        XZTarget = parent.GetTarget();
     }
 
     // Update is called once per frame
@@ -151,8 +151,8 @@ public class Bubble : MonoBehaviour
 
 
         body.velocity = Vector3.zero;
-        text.text = parent.getText();
-        XZTarget = parent.getTarget();
+        text.text = parent.GetText();
+        XZTarget = parent.GetTarget();
         //reset y position
         this.gameObject.transform.position = new Vector3(XZTarget.transform.position.x, YMin.transform.position.y, XZTarget.transform.position.z);
     }
