@@ -55,7 +55,6 @@ public class ButtonTutorial : MonoBehaviour
                         audio.Play();
                     }
                 }
-
             }
             actionsRemaining += a.numTimes;
         }

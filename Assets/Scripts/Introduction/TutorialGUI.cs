@@ -38,7 +38,7 @@ public class TutorialGUI : MonoBehaviour
 
     private void OnValidate()
     {
-        if (tryGetElementsOnClick && Selection.Contains(gameObject))
+        if (tryGetElementsOnClick)
         {
             foreach (Text t in GetComponentsInChildren<Text>())
             {

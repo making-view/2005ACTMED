@@ -2334,12 +2334,12 @@ PrefabInstance:
     - target: {fileID: 388332141312097368, guid: 97878204633644688ffb5ce1b2632894,
         type: 3}
       propertyPath: UvRotateSpeed
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 388332141312097368, guid: 97878204633644688ffb5ce1b2632894,
         type: 3}
       propertyPath: UvBumpRotateSpeed
-      value: 0.01
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3161590181684939375, guid: 97878204633644688ffb5ce1b2632894,
         type: 3}
@@ -4918,6 +4918,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735685779}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &740145273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5148817236446094103, guid: 7c90955790688a94883dce0852212805,
+    type: 3}
+  m_PrefabInstance: {fileID: 359721713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &740145274
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740145273}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4579454407841743219, guid: 7c90955790688a94883dce0852212805, type: 3}
 --- !u!1 &741695807
 GameObject:
   m_ObjectHideFlags: 0
@@ -8770,7 +8790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426137881}
   m_LocalRotation: {x: -0, y: -0, z: -0.009938223, w: 0.99995065}
-  m_LocalPosition: {x: -68, y: 2, z: -1}
+  m_LocalPosition: {x: -68, y: 0, z: -1}
   m_LocalScale: {x: 2, y: 2.5, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8802,6 +8822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scandinavian_Forest
+  tag: Cart
   fade: {fileID: 1511363544}
 --- !u!1 &1456358199
 GameObject:
@@ -9095,7 +9116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9644807216a208242aac6866bfb7c7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 35
+  duration: 40
   endposGO: {fileID: 1426137881}
   smooth: 1
   started: 0
@@ -10513,6 +10534,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2133923429}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   moveTimer: 3
   reEnableController: 0
 --- !u!1001 &1643099118
@@ -11813,6 +11845,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1789444217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7029948723529949830, guid: 7c90955790688a94883dce0852212805,
+    type: 3}
+  m_PrefabInstance: {fileID: 359721713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1789444218
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789444217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -462981019419857548, guid: 7c90955790688a94883dce0852212805, type: 3}
 --- !u!1001 &1793910636
 PrefabInstance:
   m_ObjectHideFlags: 0

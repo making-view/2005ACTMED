@@ -13,11 +13,14 @@ public class TravelVolume : MonoBehaviour
     string sceneToLoad = "";
 
     [SerializeField]
+    string tag = "Player";
+
+    [SerializeField]
     OVRScreenFade fade = null;
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag.Equals("Player"))
+        if (collider.gameObject.tag.Equals(tag))
         {
             if (fade == null)
             {
