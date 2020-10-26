@@ -137,8 +137,6 @@ public class EventVolume : MonoBehaviour
                 onEnterInvoke.Remove(i);
             }
         }
-
-
     }
 
     private void HandleLight()
