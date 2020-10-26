@@ -71,4 +71,10 @@ public class MoveThing : MonoBehaviour
         if (audiosource != null)
             audiosource.Play();
     }
+
+    public void GoBack()
+    {
+        started = false;
+        this.transform.position = startPos;
+    }
 }

@@ -281,7 +281,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 8197029773466916402}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f9a036537a926a4dbfe28a935cca25f, type: 3}
   m_Name: 
@@ -3464,6 +3464,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &657231638
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657231631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5142550439338152881, guid: 146ab70a0a6be1c4f95c1a5808ce9e9e, type: 3}
 --- !u!1 &675510260
 GameObject:
   m_ObjectHideFlags: 0
@@ -3557,20 +3571,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675510260}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &657231638
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657231631}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5142550439338152881, guid: 146ab70a0a6be1c4f95c1a5808ce9e9e, type: 3}
 --- !u!108 &705507994 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 6520408799467550655, guid: e468a4beece65aa438b19971be923ed9,
@@ -5492,7 +5492,7 @@ GameObject:
   - component: {fileID: 1402883867}
   - component: {fileID: 1402883866}
   - component: {fileID: 1402883864}
-  - component: {fileID: 1402883865}
+  - component: {fileID: 1402883870}
   m_Layer: 0
   m_Name: BridgeEntrance
   m_TagString: Untagged
@@ -5516,28 +5516,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1402883865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402883863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd683c4671e5ce141b7ae493e69a66f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startRig: {fileID: 240369025}
-  endPosition: {fileID: 113363368}
-  eventBeforeMove:
-    m_PersistentCalls:
-      m_Calls: []
-  eventAfterMove:
-    m_PersistentCalls:
-      m_Calls: []
-  moveTimer: 3
-  reEnableController: 1
 --- !u!65 &1402883866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5606,12 +5584,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402883863}
   m_LocalRotation: {x: -0, y: 0.5012303, z: -0, w: 0.8653139}
-  m_LocalPosition: {x: -14.138, y: 8.666, z: 16.068}
+  m_LocalPosition: {x: -13.917, y: 8.666, z: 16.271}
   m_LocalScale: {x: 1.330676, y: 1.5205083, z: 1.5205083}
-  m_Children: [{fileID: 113363369}, {fileID: 1522408486}]
+  m_Children:
+  - {fileID: 113363369}
+  - {fileID: 1522408486}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 60.163002, z: 0}
+--- !u!114 &1402883870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402883863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a41f88a2b6c4b48b45f3acde418bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: Bridge
+  tag: Player
+  fade: {fileID: 240149241}
+  doBefore:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1484977099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5723,6 +5721,9 @@ MonoBehaviour:
   sceneToLoad: Evo_Cave
   tag: Player
   fade: {fileID: 240149241}
+  doBefore:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1499753392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5828,7 +5829,7 @@ PrefabInstance:
     - target: {fileID: 4901752272086911378, guid: c439868005fadec40a692822fafce31d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1479666
+      value: 0.102
       objectReference: {fileID: 0}
     - target: {fileID: 4901752272086911378, guid: c439868005fadec40a692822fafce31d,
         type: 3}
@@ -5838,7 +5839,7 @@ PrefabInstance:
     - target: {fileID: 4901752272086911378, guid: c439868005fadec40a692822fafce31d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.47692057
+      value: 0.086
       objectReference: {fileID: 0}
     - target: {fileID: 4901752272086911378, guid: c439868005fadec40a692822fafce31d,
         type: 3}
@@ -6394,6 +6395,9 @@ MonoBehaviour:
   sceneToLoad: Evo_Cave
   tag: Player
   fade: {fileID: 0}
+  doBefore:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &2051030738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6914,6 +6918,11 @@ PrefabInstance:
         type: 3}
       propertyPath: active
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d423fdb688856404883d3186608568ff, type: 3}

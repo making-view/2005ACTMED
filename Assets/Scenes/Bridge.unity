@@ -172,11 +172,24 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 5fee631d03741534eb8f0e737008595a, type: 3}
   sfx: {fileID: 0}
-  currentParticles:
-  - {fileID: 582189015}
-  nextParticles:
-  - {fileID: 545157347}
-  onEnterInvoke: []
+  currentParticles: []
+  nextParticles: []
+  onEnterInvoke:
+  - delay: 0
+    ue:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 440858619}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   onExitInvoke: []
   customTag: Player
 --- !u!65 &1242075
@@ -724,7 +737,7 @@ PrefabInstance:
     - target: {fileID: 4901752272086766776, guid: dbdacf8186335894b93e65b0337f0c65,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4901752272086911378, guid: dbdacf8186335894b93e65b0337f0c65,
         type: 3}
@@ -1010,12 +1023,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 404223623}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &117506472 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4901752272102155164, guid: dbdacf8186335894b93e65b0337f0c65,
-    type: 3}
-  m_PrefabInstance: {fileID: 404223623}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &125912709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1114,12 +1121,6 @@ Transform:
 --- !u!4 &125988025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4901752272086911378, guid: dbdacf8186335894b93e65b0337f0c65,
-    type: 3}
-  m_PrefabInstance: {fileID: 77620056}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &125988027 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4901752272102155164, guid: dbdacf8186335894b93e65b0337f0c65,
     type: 3}
   m_PrefabInstance: {fileID: 77620056}
   m_PrefabAsset: {fileID: 0}
@@ -2348,7 +2349,7 @@ MonoBehaviour:
   - "\u2018noe forferdelig kommer til \xE5 skje\u2019 "
   - "\u2018jeg klarer det ikke\u2019"
   BPM: 0
-  active: 0
+  numBublees: 50
   positivePercentage: 0
 --- !u!136 &388304575
 CapsuleCollider:
@@ -2627,7 +2628,7 @@ PrefabInstance:
     - target: {fileID: 4901752272086766776, guid: dbdacf8186335894b93e65b0337f0c65,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4901752272086911378, guid: dbdacf8186335894b93e65b0337f0c65,
         type: 3}
@@ -3017,10 +3018,8 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: 92995a75d18fcf945956b82bf9e0dca6, type: 3}
   sfx: {fileID: 0}
-  currentParticles:
-  - {fileID: 582189015}
-  nextParticles:
-  - {fileID: 545157347}
+  currentParticles: []
+  nextParticles: []
   onEnterInvoke:
   - delay: 0
     ue:
@@ -3037,12 +3036,34 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1294125621}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - delay: 4
     ue:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2067163346}
           m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1888536190}
+          m_MethodName: StartScale
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3419,21 +3440,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1310236641}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &545157347 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4901752272102155164, guid: dbdacf8186335894b93e65b0337f0c65,
-    type: 3}
-  m_PrefabInstance: {fileID: 1310236641}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &582189013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4901752272086911378, guid: dbdacf8186335894b93e65b0337f0c65,
-    type: 3}
-  m_PrefabInstance: {fileID: 2018680963}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &582189015 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4901752272102155164, guid: dbdacf8186335894b93e65b0337f0c65,
     type: 3}
   m_PrefabInstance: {fileID: 2018680963}
   m_PrefabAsset: {fileID: 0}
@@ -9167,10 +9176,8 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: f2cc9d4b8e9b8494d9a91de7b84438de, type: 3}
   sfx: {fileID: 0}
-  currentParticles:
-  - {fileID: 545157347}
-  nextParticles:
-  - {fileID: 0}
+  currentParticles: []
+  nextParticles: []
   onEnterInvoke:
   - delay: 0
     ue:
@@ -9190,6 +9197,17 @@ MonoBehaviour:
         - m_Target: {fileID: 1486550815}
           m_MethodName: Play
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1242072}
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9310,10 +9328,8 @@ MonoBehaviour:
   volume: 0.8
   narration: {fileID: 8300000, guid: e010054a001b9c54baa67be2c84d49d9, type: 3}
   sfx: {fileID: 0}
-  currentParticles:
-  - {fileID: 117506472}
-  nextParticles:
-  - {fileID: 125988027}
+  currentParticles: []
+  nextParticles: []
   onEnterInvoke:
   - delay: 0
     ue:
@@ -9459,7 +9475,7 @@ PrefabInstance:
     - target: {fileID: 4901752272086766776, guid: dbdacf8186335894b93e65b0337f0c65,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4901752272086911378, guid: dbdacf8186335894b93e65b0337f0c65,
         type: 3}
@@ -10083,6 +10099,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1377102593}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1379824973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379824975}
+  - component: {fileID: 1379824974}
+  m_Layer: 0
+  m_Name: DoOnHMDEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1379824974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379824973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98b656a88f2a3a40b64634984e4fdc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onUnmounted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 542286289}
+        m_MethodName: GoBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1888536190}
+        m_MethodName: GoBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1379824975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379824973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.076492175, y: 3.2815547, z: 1.4416118}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1386421239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435342, guid: fa24d737a143bf54fae3d795f39b93f1,
@@ -14477,6 +14561,22 @@ AreaEffector2D:
   m_ForceTarget: 0
   m_Drag: 0
   m_AngularDrag: 0
+--- !u!114 &1888536190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888536187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a30487a9eaae9342a3cc401f5ced6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newScale: {x: 0.35, y: 1, z: 1}
+  timeToScale: 5
+  ImAFraud: 1
+  newXpos: 16.565
 --- !u!4 &1888536192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 71e9c8b6c85fd2c4b900e9aab67327f2,
@@ -15374,7 +15474,7 @@ PrefabInstance:
     - target: {fileID: 4901752272086766776, guid: dbdacf8186335894b93e65b0337f0c65,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4901752272086911378, guid: dbdacf8186335894b93e65b0337f0c65,
         type: 3}
