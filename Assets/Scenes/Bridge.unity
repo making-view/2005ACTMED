@@ -606,6 +606,9 @@ MonoBehaviour:
   sceneToLoad: Scandinavian_Forest
   tag: Player
   fade: {fileID: 884047566}
+  doBefore:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &72457726
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10318,6 +10321,9 @@ MonoBehaviour:
   sceneToLoad: Scandinavian_Forest
   tag: Player
   fade: {fileID: 0}
+  doBefore:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1441267537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11140,6 +11146,9 @@ MonoBehaviour:
   sceneToLoad: Scandinavian_Forest
   tag: Player
   fade: {fileID: 0}
+  doBefore:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1546381645
 BoxCollider:
   m_ObjectHideFlags: 0
