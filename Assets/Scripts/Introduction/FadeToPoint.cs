@@ -10,6 +10,7 @@ public class FadeToPoint : MonoBehaviour
 
     [Tooltip("Where to place player")]
     [SerializeField] GameObject endPosition = null;
+    [SerializeField] UnityEvent eventBeforeMove = null;
     [SerializeField] UnityEvent eventAfterMove = null;
 
     [Tooltip("Total time for transition to happen")]
