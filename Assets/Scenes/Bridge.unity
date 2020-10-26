@@ -3405,7 +3405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9644807216a208242aac6866bfb7c7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 5
   endposGO: {fileID: 1051336921}
   smooth: 1
   started: 0
@@ -3455,7 +3455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 497438, guid: 8d218001a1e147542bc5a9058259e49f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 47.46
+      value: 39.14
       objectReference: {fileID: 0}
     - target: {fileID: 497438, guid: 8d218001a1e147542bc5a9058259e49f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7134,7 +7134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051336921}
   m_LocalRotation: {x: -0.0000000064735417, y: 0.9452768, z: 0.0000000026695233, w: 0.32626957}
-  m_LocalPosition: {x: 16.435568, y: -42.6, z: -49.77636}
+  m_LocalPosition: {x: 16.435568, y: -32.1, z: -49.77636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1012949402}
@@ -9311,7 +9311,33 @@ MonoBehaviour:
   - {fileID: 117506472}
   nextParticles:
   - {fileID: 125988027}
-  onEnterInvoke: []
+  onEnterInvoke:
+  - delay: 0
+    ue:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1899810549}
+          m_MethodName: FadeIn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1486550815}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   onExitInvoke: []
   customTag: Player
 --- !u!65 &1294125624
