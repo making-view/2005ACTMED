@@ -18,6 +18,9 @@ public class TravelVolume : MonoBehaviour
     [SerializeField]
     OVRScreenFade fade = null;
 
+    [SerializeField]
+    UnityEvent doBefore = null;
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag.Equals(tag))

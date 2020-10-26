@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 72457725}
   - component: {fileID: 72457726}
   m_Layer: 0
-  m_Name: TravelBox
+  m_Name: TravelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scandinavian_Forest
   tag: Player
-  fade: {fileID: 0}
+  fade: {fileID: 884047566}
 --- !u!54 &72457726
 Rigidbody:
   m_ObjectHideFlags: 0
