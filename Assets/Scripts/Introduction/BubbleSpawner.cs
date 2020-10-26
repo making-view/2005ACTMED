@@ -39,7 +39,7 @@ public class BubbleSpawner : MonoBehaviour
 
     private List<GameObject> bubbles = null;
 
-    public bool active = false;
+    public bool active { get; set; }
 
     //amount of bubbles containing positive messagess
     [SerializeField]
@@ -111,14 +111,9 @@ public class BubbleSpawner : MonoBehaviour
      
     private void ToggleVisibility(bool visible)
     {
-        //make target meshes invisible
-<<<<<<< HEAD
-        GetComponent<MeshRenderer>().enabled = visible;
-=======
         if(GetComponentInParent<MeshRenderer>() != null)
             GetComponentInParent<MeshRenderer>().enabled = visible;
 
->>>>>>> 2ee85c6ac784a68586ce7a87695680fe6283f984
         MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer r in renderers)
             r.enabled = visible;
@@ -128,19 +123,19 @@ public class BubbleSpawner : MonoBehaviour
     void Update()
     {
         if(active) {
-            if ((cooldown -= Time.deltaTime) <= 0)
+            if ((cooldown -= Time.deltaTime) <= 0 && bubbles.Count < numBublees)
             {
                 SpawnBuuuble();
 
                 cooldown = 60 / BPM;
             }
 
-            if (bubbles.Count > numBublees)
-            {
-                var buble = bubbles[0];
-                bubbles.Remove(buble);
-                Destroy(buble);
-            }
+            //if (bubbles.Count > numBublees)
+            //{
+            //    var buble = bubbles[bubbles.Count];
+            //    bubbles.Remove(buble);
+            //    Destroy(buble);
+            //}
         }
     }
 
