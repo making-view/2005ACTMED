@@ -112,7 +112,13 @@ public class BubbleSpawner : MonoBehaviour
     private void ToggleVisibility(bool visible)
     {
         //make target meshes invisible
+<<<<<<< HEAD
         GetComponent<MeshRenderer>().enabled = visible;
+=======
+        if(GetComponentInParent<MeshRenderer>() != null)
+            GetComponentInParent<MeshRenderer>().enabled = visible;
+
+>>>>>>> 2ee85c6ac784a68586ce7a87695680fe6283f984
         MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer r in renderers)
             r.enabled = visible;
