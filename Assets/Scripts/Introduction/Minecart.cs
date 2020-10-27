@@ -9,7 +9,6 @@ public class Minecart : MonoBehaviour
     [SerializeField]
     float duration = 20;
     float timeElapsed = 0;
-    [SerializeField]
     float wait = 5;
 
     [SerializeField]
