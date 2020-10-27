@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 [RequireComponent(typeof(AudioSource))]
@@ -15,14 +16,18 @@ public class BubbleEvent : MonoBehaviour
     private float fade = 0;
     [SerializeField] private float timeToFade = 1.0f;
     [SerializeField] private CanvasGroup imAfraudlol = null;
-
     AudioSource audio = null;
+
+    [SerializeField] GameObject colliders = null;
 
     private void Start()
     {
         audio = GetComponent<AudioSource>();
         previousFogStart = RenderSettings.fogStartDistance;
         previousFogEnd = RenderSettings.fogEndDistance;
+
+        foreach (Collider c in colliders.GetComponentsInChildren<Collider>())
+            c.enabled = false;
     }
 
     private void Update()
@@ -48,6 +53,10 @@ public class BubbleEvent : MonoBehaviour
         StopCoroutine(FogUp());
         StopCoroutine(FogOff());
 
+
+        foreach (Collider c in colliders.GetComponentsInChildren<Collider>())
+            c.enabled = true;
+
         while (fade < timeToFade)
         {
             fade += Time.deltaTime;
@@ -68,6 +77,10 @@ public class BubbleEvent : MonoBehaviour
     {
         StopCoroutine(FogUp());
         StopCoroutine(FogOff());
+
+
+        foreach (Collider c in colliders.GetComponentsInChildren<Collider>())
+            c.enabled = false;
 
         while (fade > 0)
         {

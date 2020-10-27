@@ -33,8 +33,8 @@ public class BubbleSpawner : MonoBehaviour
 
     //bubbles per minute
     [Range(0, 600)]
-    public float BPM = 60;
-    public float numBublees = 50;
+    public int BPM = 60;
+    public int numBublees = 50;
     float cooldown = 1;
 
     private List<GameObject> bubbles = null;
@@ -71,9 +71,9 @@ public class BubbleSpawner : MonoBehaviour
     }
 
     //parses lines of text file into list of strings
-    void ParseText(List<string> list, string file)
+    List<string> ParseText(string file)
     {
-        list = new List<string>();
+        var list = new List<string>();
 
         int counter = 0;
         string line;
@@ -82,15 +82,16 @@ public class BubbleSpawner : MonoBehaviour
             new System.IO.StreamReader(file);
         while ((line = stream.ReadLine()) != null)
         {
-            //Debug.Log("reading: " + line);
+            Debug.Log("reading: " + line);
             counter++;
             list.Add(line);
         }
 
         stream.Close();
-        //Debug.Log("There were " + counter + " lines.");
+        Debug.Log("There were " + counter + " lines.");
 
         System.Console.ReadLine();
+        return list;
     }
 
     void OnValidate()
@@ -100,10 +101,10 @@ public class BubbleSpawner : MonoBehaviour
         negative = UnityEngine.Application.dataPath + "/Localized/negative.txt";
 
         if (FindFile(positive))
-            ParseText(positiveThoughts, positive);
+            positiveThoughts = ParseText(positive);
 
         if (FindFile(negative))
-            ParseText(negativeThoughts, negative);
+            negativeThoughts = ParseText(negative);
 
 
         ToggleVisibility(objectsVisible);
@@ -126,26 +127,25 @@ public class BubbleSpawner : MonoBehaviour
             if ((cooldown -= Time.deltaTime) <= 0 && bubbles.Count < numBublees)
             {
                 SpawnBuuuble();
-
-                cooldown = 60 / BPM;
             }
 
-            //if (bubbles.Count > numBublees)
-            //{
-            //    var buble = bubbles[bubbles.Count];
-            //    bubbles.Remove(buble);
-            //    Destroy(buble);
-            //}
+            while(bubbles.Count > numBublees)
+            {
+                var buble = bubbles[bubbles.Count - 1];
+                bubbles.Remove(buble);
+                Destroy(buble);
+            }
         }
     }
 
-    private void SpawnBuuuble()
+    public void SpawnBuuuble()
     {
         GameObject target = GetTarget();
         Vector3 spawnPoint = target.transform.position;
         spawnPoint.y = minY.transform.position.y;
 
         bubbles.Add(Instantiate(bubblePrefab, spawnPoint, transform.rotation));
+        cooldown = 60 / BPM;
     }
 
     //gets new target for bubble to follow
@@ -200,11 +200,5 @@ public class BubbleSpawner : MonoBehaviour
         }
 
         return negative;
-    }
-
-    public void DestroyBubbles()
-    {
-        foreach (GameObject g in bubbles)
-            Destroy(g);
     }
 }
