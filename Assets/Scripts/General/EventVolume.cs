@@ -172,7 +172,7 @@ public class EventVolume : MonoBehaviour
     //when player enters trigger / new area
     private void OnTriggerEnter(Collider other)
     {
-        if (!done && other.gameObject.tag.Equals(customTag))
+        if (!activated && !done && other.gameObject.tag.Equals(customTag))
         {
             Debug.Log(customTag + " found");
             activated = true;
