@@ -47,8 +47,10 @@ public class ScaleThing : MonoBehaviour
         while (progress > 0)
         {
             progress -= Time.deltaTime;
-            this.transform.localScale = Vector3.Lerp(oldscale, newScale, progress / timeToScale);
-            this.transform.localPosition = Vector3.Lerp(oldPos, newPos, progress / timeToScale);
+            var bigSmart = Mathf.Sin(Mathf.SmoothStep(0, Mathf.PI / 2, progress / timeToScale));
+
+            this.transform.localScale = Vector3.Lerp(oldscale, newScale, bigSmart);
+            this.transform.localPosition = Vector3.Lerp(oldPos, newPos, bigSmart);
             yield return new WaitForEndOfFrame();
         }
     }
@@ -58,8 +60,10 @@ public class ScaleThing : MonoBehaviour
         while (progress <= timeToScale)
         {
             progress += Time.deltaTime;
-            this.transform.localScale = Vector3.Lerp(oldscale, newScale, progress / timeToScale);
-            this.transform.localPosition = Vector3.Lerp(oldPos, newPos, progress / timeToScale);
+            var bigSmart = Mathf.Sin(Mathf.SmoothStep(0, Mathf.PI / 2, progress / timeToScale));
+
+            this.transform.localScale = Vector3.Lerp(oldscale, newScale, bigSmart);
+            this.transform.localPosition = Vector3.Lerp(oldPos, newPos, bigSmart);
             yield return null;
         }
     }
