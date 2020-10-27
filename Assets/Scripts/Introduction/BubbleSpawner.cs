@@ -33,8 +33,8 @@ public class BubbleSpawner : MonoBehaviour
 
     //bubbles per minute
     [Range(0, 600)]
-    public float BPM = 60;
-    public float numBublees = 50;
+    public int BPM = 60;
+    public int numBublees = 50;
     float cooldown = 1;
 
     private List<GameObject> bubbles = null;
@@ -130,12 +130,12 @@ public class BubbleSpawner : MonoBehaviour
                 cooldown = 60 / BPM;
             }
 
-            //if (bubbles.Count > numBublees)
-            //{
-            //    var buble = bubbles[bubbles.Count];
-            //    bubbles.Remove(buble);
-            //    Destroy(buble);
-            //}
+            while(bubbles.Count > numBublees)
+            {
+                var buble = bubbles[bubbles.Count - 1];
+                bubbles.Remove(buble);
+                Destroy(buble);
+            }
         }
     }
 
