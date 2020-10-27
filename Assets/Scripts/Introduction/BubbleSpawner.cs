@@ -4,21 +4,18 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshRenderer))]
 public class BubbleSpawner : MonoBehaviour
 {
     //thoughts in files
     private string positive;
     private string negative;
 
-    [SerializeField]
-    private bool objectsVisible = true; 
-
-    [SerializeField]
-    GameObject bubblePrefab;
+    [SerializeField] private bool objectsVisible = true;
+    [SerializeField] GameObject bubblePrefab;
 
     //These are the XZ follow targets assigned to bubbles
-    [SerializeField]
-    List<GameObject> targets;
+    [SerializeField] List<GameObject> targets;
     private int tarn = 0;
 
     //top and bottom of bubble stream
@@ -26,8 +23,7 @@ public class BubbleSpawner : MonoBehaviour
     public GameObject maxY;
 
     //list of positive thoughts and last one used
-    [SerializeField]
-    List<string> positiveThoughts;
+    [SerializeField] List<string> positiveThoughts;
     private int posn = 0;
 
     //list of negative thoughts and last one used
@@ -38,11 +34,12 @@ public class BubbleSpawner : MonoBehaviour
     //bubbles per minute
     [Range(0, 600)]
     public float BPM = 60;
+    public float numBublees = 50;
     float cooldown = 1;
 
     private List<GameObject> bubbles = null;
 
-    public bool active = false;
+    public bool active { get; set; }
 
     //amount of bubbles containing positive messagess
     [SerializeField]
@@ -114,7 +111,6 @@ public class BubbleSpawner : MonoBehaviour
      
     private void ToggleVisibility(bool visible)
     {
-        //make target meshes invisible
         if(GetComponentInParent<MeshRenderer>() != null)
             GetComponentInParent<MeshRenderer>().enabled = visible;
 
@@ -126,31 +122,34 @@ public class BubbleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TestBPM();
-
         if(active) {
-            if ((cooldown -= Time.deltaTime) <= 0)
+            if ((cooldown -= Time.deltaTime) <= 0 && bubbles.Count < numBublees)
             {
-                GameObject target = getTarget();
-                Vector3 spawnPoint = target.transform.position;
-                spawnPoint.y = minY.transform.position.y;
-
-                bubbles.Add(Instantiate(bubblePrefab, spawnPoint, transform.rotation));
+                SpawnBuuuble();
 
                 cooldown = 60 / BPM;
             }
+
+            //if (bubbles.Count > numBublees)
+            //{
+            //    var buble = bubbles[bubbles.Count];
+            //    bubbles.Remove(buble);
+            //    Destroy(buble);
+            //}
         }
     }
 
-    //rework to set BPM
-    private void TestBPM()
+    private void SpawnBuuuble()
     {
-        int maxBubbles = 600;
-        BPM = (maxBubbles * (Time.time / 120) % maxBubbles + 1);
+        GameObject target = GetTarget();
+        Vector3 spawnPoint = target.transform.position;
+        spawnPoint.y = minY.transform.position.y;
+
+        bubbles.Add(Instantiate(bubblePrefab, spawnPoint, transform.rotation));
     }
 
     //gets new target for bubble to follow
-    public GameObject getTarget()
+    public GameObject GetTarget()
     {
         GameObject target = this.gameObject;
 
@@ -166,19 +165,17 @@ public class BubbleSpawner : MonoBehaviour
     }
 
     //get text to put in bubble
-    public string getText()
+    public string GetText()
     {
         int random = Random.Range(0, 100);
 
-        //Debug.Log("random: " + random + " VS " + positivePercentage);
-
         if (random < positivePercentage)
-            return getPositive();
-        else return getNegative();
+            return GetPositive();
+        else return GetNegative();
     }
 
     //return a message from the list of positive thoughts
-    private string getPositive()
+    private string GetPositive()
     {
         string positive = "Positive";
 
@@ -192,7 +189,7 @@ public class BubbleSpawner : MonoBehaviour
     }
 
     //return a message from the list of negative thoughts
-    private string getNegative()
+    private string GetNegative()
     {
         string negative = "Negative";
 
@@ -205,7 +202,7 @@ public class BubbleSpawner : MonoBehaviour
         return negative;
     }
 
-    public void destroyBubbles()
+    public void DestroyBubbles()
     {
         foreach (GameObject g in bubbles)
             Destroy(g);
