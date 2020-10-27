@@ -2524,7 +2524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 549963596}
   m_Layer: 0
-  m_Name: Description
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3988,7 +3988,7 @@ GameObject:
   - component: {fileID: 931447884}
   - component: {fileID: 931447885}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4082,7 +4082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fogStart: 0
   fogEnd: 6.5
-  timeToFade: 10
+  timeToFade: 22
   imAfraudlol: {fileID: 4445655938934209034}
 --- !u!54 &931447884
 Rigidbody:
