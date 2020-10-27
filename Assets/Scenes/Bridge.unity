@@ -57,9 +57,9 @@ LightmapSettings:
     serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
-    m_AO: 0
-    m_AOMaxDistance: 1
+    m_AtlasSize: 2048
+    m_AO: 1
+    m_AOMaxDistance: 2
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
     m_ExtractAmbientOcclusion: 0
@@ -75,7 +75,7 @@ LightmapSettings:
     m_BakeBackend: 2
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
-    m_PVRSampleCount: 512
+    m_PVRSampleCount: 256
     m_PVRBounces: 2
     m_PVREnvironmentSampleCount: 256
     m_PVREnvironmentReferencePointCount: 2048
@@ -86,8 +86,8 @@ LightmapSettings:
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVREnvironmentMIS: 1
-    m_PVRCulling: 1
+    m_PVREnvironmentMIS: 0
+    m_PVRCulling: 0
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
@@ -959,6 +959,11 @@ PrefabInstance:
         type: 3}
       propertyPath: UvBumpRotateSpeed
       value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225698136394525671, guid: 97878204633644688ffb5ce1b2632894,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3161590181684939375, guid: 97878204633644688ffb5ce1b2632894,
         type: 3}
@@ -2399,64 +2404,79 @@ MonoBehaviour:
   minY: {fileID: 745481653}
   maxY: {fileID: 438434471}
   positiveThoughts:
-  - "\u2018Jeg er verdens beste menneske\u2019"
-  - "\u2018Jeg dummer meg aldri ut\u2019"
-  - "\u2018Jeg har det aldri vondt\u2019"
-  - "\u2018Jeg er best p\xE5 alt\u2019"
-  - "\u2018Jeg gj\xF8r alt p\xE5 egenh\xE5nd\u2019"
-  - "\u2018Alt er perfekt n\xE5\u2019"
-  - "\u2018Jeg har bare gode minner\u2019"
-  - "\u2018Jeg er best\u2019"
-  - "\u2018Jeg er sterkest\u2019"
-  - "\u2018ingenting kan s\xE5re meg\u2019"
-  - "\u2018ingenting g\xE5r galt\u2019"
-  - "\u2018Jeg er alltid lykkelig\u2019"
-  - "\u2018Det blir bra uansett\u2019"
-  - "\u2018alle liker meg\u2019"
-  - "'Jeg er verdens smarteste\u2019"
-  - "\u2018Alle elsker meg\u2019"
-  - "\u2018jeg er et fantastisk menneske\u2019 "
-  - "\u2018Jeg klarer alt\u2019 "
-  - "\u2018alt g\xE5r bra for meg\u2019 "
-  - "\u2018noe forferdelig kommer aldri til \xE5 skje\u2019 "
+  - Jeg er den beste!
+  - Alt blir bra!
+  - Jeg starter i morgen!
+  - "Jeg beh\xF8ver ikke anstrenge meg"
+  - "Jeg kan jo bare f\xE5 hjelp"
+  - Jeg har masse venner!
+  - Alt blir bedre snart
+  - Jeg er glad!
+  - Jeg er ikke redd!
+  - Jeg blir aldri avvist
+  - "Jeg lar bare v\xE6re \xE5 tenke p\xE5 dem!"
+  - Jeg er best!
+  - Jeg er sterk
+  - "Jeg skal gjennomf\xF8re alt!"
+  - Jeg er robust
+  - Selvsagt klarer jeg det
+  - Jeg er lykkelig!
+  - "Jeg skal motst\xE5 ALLE fristelser"
+  - alt er viktig og meningsfylt
+  - Alt blir fantastisk!
+  - Jeg er slett ikke ensom
+  - Jeg er en vinner
+  - Jeg bryr meg ikke!
+  - "Jeg f\xE5r til alt"
+  - Jeg er best!
+  - Halvveis er bra nok
+  - jeg klarer meg uten penger, jeg
+  - Jeg er pen
+  - Jeg er smart
+  - alle elsker meg
+  - jeg er et fantastisk menneske
+  - "jeg klarer alt det jeg kunne f\xF8r"
+  - alle liker meg
+  - "alt g\xE5r bra for meg"
+  - det skjer aldri noe forferdelig
+  - jeg klarer alt
   negativeThoughts:
-  - "\u2018Jeg er ikke god nok\u2019"
-  - "\u2018Tenk om jeg dummer meg ut\u2019"
-  - "\u2018Det blir aldri bedre\u2019"
-  - "\u2018Jeg burde bare ta meg sammen\u2019"
-  - "\u2018Jeg burde klare det bedre\u2019"
-  - "\u2018Jeg burde klare ting p\xE5 egenh\xE5nd\u2019"
-  - "\u2018Jeg er helt alene\u2019"
-  - "\u2018Alt var bedre f\xF8r\u2019"
-  - "\u2018Jeg burde v\xE6re glad\u2019"
-  - "\u2018Jeg burde ikke v\xE6re redd\u2019"
-  - "\u2018Tenk om jeg blir avvist\u2019"
-  - "\u2018Jeg har for mange vonde minner\u2019"
-  - "\u2018Jeg har ingen selvtillit\u2019"
-  - "\u2018Jeg er svak\u2019"
-  - "\u2018Jeg gir alltid opp\u2019"
-  - "\u2018Jeg er s\xE5rbar\u2019"
-  - "\u2018Tenk om jeg ikke klarer det\u2019"
-  - "\u2018Jeg er ulykkelig\u2019"
-  - "\u2018Jeg klarer ikke motst\xE5 fristelser\u2019"
-  - "\u2018Det er ikke noe vits\u2019"
-  - "\u2018Det blir ikke bra uansett\u2019"
-  - "\u2018Jeg er den eneste i verden som er ensom\u2019"
-  - "\u2018Jeg er en fiasko\u2019"
-  - "\u2018Tenk om noen s\xE5 meg n\xE5\u2019"
-  - "\u2018Jeg f\xE5r ikke til noe\u2019"
-  - "\u2018Jeg burde v\xE6rt bedre\u2019"
-  - "\u2018Jeg burde gjort mer\u2019"
-  - "\u2018Jeg burde tjent mer penger\u2019"
-  - "\u2018Jeg er stygg\u2019"
-  - "Jeg er dum\u2019"
-  - "\u2018Ingen elsker meg\u2019"
-  - "\u2018jeg er et d\xE5rlig menneske\u2019 "
-  - "\u2018Jeg klarer ingenting av det jeg kunne f\xF8r\u2019 "
-  - "\u2018Ingen liker meg\u2019 "
-  - "\u2018alt g\xE5r galt for meg\u2019 "
-  - "\u2018noe forferdelig kommer til \xE5 skje\u2019 "
-  - "\u2018jeg klarer det ikke\u2019"
+  - Jeg er ikke god nok
+  - Det blir aldri bedre
+  - Jeg burde bare ta meg sammen
+  - Jeg burde klare det bedre
+  - "Jeg burde klare ting p\xE5 egenh\xE5nd"
+  - Jeg er helt alene
+  - "Alt var bedre f\xF8r"
+  - "Jeg burde v\xE6re glad"
+  - "Jeg burde ikke v\xE6re redd"
+  - Tenk om jeg blir avvist
+  - Jeg har for mange vonde minner
+  - Jeg har ingen selvtillit
+  - Jeg er svak
+  - Jeg gir alltid opp
+  - "Jeg er s\xE5rbar"
+  - Tenk om jeg ikke klarer det
+  - Jeg er ulykkelig
+  - "Jeg klarer ikke motst\xE5 fristelser"
+  - Det er ikke noe vits
+  - Det blir ikke bra uansett
+  - Jeg er den eneste i verden som er ensom
+  - Jeg er en fiasko
+  - "Tenk om noen s\xE5 meg n\xE5"
+  - "Jeg f\xE5r ikke til noe"
+  - "Jeg burde v\xE6rt bedre"
+  - Jeg burde gjort mer
+  - Jeg burde tjent mer penger
+  - Jeg er stygg
+  - Jeg er dum
+  - Ingen elsker meg
+  - "jeg er et d\xE5rlig menneske"
+  - "Jeg klarer ingenting av det jeg kunne f\xF8r"
+  - Ingen liker meg
+  - "alt g\xE5r galt for meg"
+  - "noe forferdelig kommer til \xE5 skje"
+  - jeg klarer det ikke
   BPM: 0
   numBublees: 50
   positivePercentage: 0
@@ -4546,7 +4566,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f1c869fbf2d45b34587f6e017c0c9e00,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f1c869fbf2d45b34587f6e017c0c9e00,
         type: 3}
@@ -5441,7 +5461,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: abc17f494677a524286d90e60327680c,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: abc17f494677a524286d90e60327680c,
         type: 3}
@@ -7220,7 +7240,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1012949402
 Transform:
@@ -7651,7 +7671,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f1c869fbf2d45b34587f6e017c0c9e00,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f1c869fbf2d45b34587f6e017c0c9e00,
         type: 3}
@@ -9348,7 +9368,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: abc17f494677a524286d90e60327680c,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: abc17f494677a524286d90e60327680c,
         type: 3}
@@ -10578,7 +10598,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2120066, guid: f882b3b83c1fc204fa5c6467887dbdca, type: 3}
+      objectReference: {fileID: 2120066, guid: fa7e1e6c12d0fdd4a90d481a47800ee1, type: 3}
     - target: {fileID: 919132149155446097, guid: ca6d5d1c8cabdcd40a9c47b132e4ebd0,
         type: 3}
       propertyPath: m_Name
@@ -11946,7 +11966,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2120066, guid: f882b3b83c1fc204fa5c6467887dbdca, type: 3}
+      objectReference: {fileID: 2120066, guid: fa7e1e6c12d0fdd4a90d481a47800ee1, type: 3}
     - target: {fileID: 919132149155446097, guid: ca6d5d1c8cabdcd40a9c47b132e4ebd0,
         type: 3}
       propertyPath: m_Name
@@ -12370,7 +12390,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 21414396906577702, guid: 010a0ce8ac7dace40a18be5e558f6dac,
+      objectReference: {fileID: 21994491337167142, guid: b794ec1eb38f6304fa7223ead137b70f,
         type: 3}
     - target: {fileID: 919132149155446097, guid: 156ee1eae6364bd4782f61792a93da04,
         type: 3}
@@ -12698,7 +12718,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1641234948
 Transform:
@@ -14558,7 +14578,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f1c869fbf2d45b34587f6e017c0c9e00,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f1c869fbf2d45b34587f6e017c0c9e00,
         type: 3}
