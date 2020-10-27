@@ -4377,7 +4377,7 @@ MonoBehaviour:
   nextParticles:
   - {fileID: 1636294316}
   onEnterInvoke:
-  - delay: 8
+  - delay: 5
     ue:
       m_PersistentCalls:
         m_Calls:
@@ -16945,7 +16945,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e69d01db0fddefa459848c4365f2d207, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.548
   m_Pitch: 1
   Loop: 0
   Mute: 0
