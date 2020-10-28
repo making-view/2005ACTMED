@@ -2241,7 +2241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionmode: 0
-  bonkVel: 1.4
+  bonkVel: 1.7
 --- !u!135 &446049922
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3148,8 +3148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4d71f84fd0f5c4eb95d0f301592f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionmode: 2
-  bonkVel: 1.4
+  interactionmode: 0
+  bonkVel: 1.7
 --- !u!135 &585517897
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4893,6 +4893,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849648701}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &865873041 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 8197029773466916402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f9a036537a926a4dbfe28a935cca25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &911090431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6249954565828322523, guid: e468a4beece65aa438b19971be923ed9,
@@ -5735,6 +5747,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1208839387}
+  - component: {fileID: 1208839388}
+  - component: {fileID: 1208839389}
   m_Layer: 0
   m_Name: PopupAnalogy
   m_TagString: Untagged
@@ -5759,6 +5773,297 @@ Transform:
   m_Father: {fileID: 6520408798762698025}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 100.673004, z: 0}
+--- !u!114 &1208839388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208839386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022b601403ac45d4ba0dcb864a0efaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+  - name: intro
+    task: 4
+    narration: {fileID: 8300000, guid: 075a1ef57e3e2284d881380ade48e90a, type: 3}
+    numberOfTimes: 0
+    delayOnComplete: 2
+    onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 865873041}
+          m_MethodName: SpawnBubbles
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 10
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1971703550}
+          m_MethodName: Stop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: Bonk
+    task: 4
+    narration: {fileID: 8300000, guid: 3d953f2b3cd2cc349bc290f74a566870, type: 3}
+    numberOfTimes: 0
+    delayOnComplete: 2
+    onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1208839388}
+          m_MethodName: ChangeHandMode
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: bonkers
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: run
+    task: 0
+    narration: {fileID: 8300000, guid: 5ef4f39f2071b60448ef8f8949b1a335, type: 3}
+    numberOfTimes: 7
+    delayOnComplete: 3
+    onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Touch
+    task: 2
+    narration: {fileID: 8300000, guid: 661a3b5debf8e254496f6501ef2a53de, type: 3}
+    numberOfTimes: 150
+    delayOnComplete: 2
+    onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1208839388}
+          m_MethodName: ChangeHandMode
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: changers
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: Angry
+    task: 3
+    narration: {fileID: 8300000, guid: 58828417068d10f469ca1292b1233741, type: 3}
+    numberOfTimes: 7
+    delayOnComplete: 2
+    onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1208839388}
+          m_MethodName: ChangeHandMode
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: bonkers
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 865873041}
+          m_MethodName: ChangeAllBubblesBehaviour
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: angwy
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: CalmDown
+    task: 4
+    narration: {fileID: 8300000, guid: 828783255669b0a4c834bbece8de3dfe, type: 3}
+    numberOfTimes: 0
+    delayOnComplete: 1
+    onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1208839388}
+          m_MethodName: ChangeHandMode
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: bonkers
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: Done?
+    task: 4
+    narration: {fileID: 8300000, guid: 38f2e556c76a25f4689d4db58bba9321, type: 3}
+    numberOfTimes: 0
+    delayOnComplete: 7
+    onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 865873041}
+          m_MethodName: ChangeAllBubblesBehaviour
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: calm
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1738495709}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: Done
+    task: 4
+    narration: {fileID: 0}
+    numberOfTimes: 0
+    delayOnComplete: 5
+    onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 931447883}
+          m_MethodName: RemoveFog
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: Done
+    task: 4
+    narration: {fileID: 0}
+    numberOfTimes: 0
+    delayOnComplete: 10
+    onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!82 &1208839389
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208839386}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1211180488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5833,6 +6138,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48963c3b76ea5f54b9a854a1096109a5, type: 3}
+--- !u!1 &1249569959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1249569960}
+  m_Layer: 11
+  m_Name: DisappearTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1249569960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249569959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 181.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1738495708}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1275887168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7521,6 +7856,35 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -982167125216493559, guid: 655e2aa251720ab47ae672068e4ee1a8, type: 3}
+--- !u!1 &1738495707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8197029772973801447, guid: d423fdb688856404883d3186608568ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 8197029773466916402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1738495708 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8197029772973801444, guid: d423fdb688856404883d3186608568ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 8197029773466916402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1738495709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738495707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9644807216a208242aac6866bfb7c7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  endposGO: {fileID: 1249569959}
+  smooth: 0
+  started: 0
+  audioclip: {fileID: 0}
 --- !u!1 &1748999413 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6249954566237301204, guid: e468a4beece65aa438b19971be923ed9,
@@ -7807,6 +8171,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -982167125216493559, guid: 655e2aa251720ab47ae672068e4ee1a8, type: 3}
+--- !u!198 &1971703550 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4901752272102155164, guid: c439868005fadec40a692822fafce31d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1484977099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2001493333
 GameObject:
   m_ObjectHideFlags: 0
@@ -9719,12 +10089,12 @@ PrefabInstance:
     - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
         type: 3}
       propertyPath: BPM
-      value: 6
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
         type: 3}
       propertyPath: numBublees
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
         type: 3}

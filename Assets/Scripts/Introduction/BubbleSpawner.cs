@@ -143,29 +143,25 @@ public class BubbleSpawner : MonoBehaviour
                 Destroy(buble);
             }
 
-            var prevBehav = currentBehaviour;
+            ////for testing, pls delete this shit
+            //if (Input.GetKeyDown(KeyCode.A))
+            //    ChangeAllBubblesBehaviour("angwy");
 
-            if (Input.GetKeyDown(KeyCode.A))
-                currentBehaviour = "angwy";
+            //if (Input.GetKeyDown(KeyCode.S))
+            //    ChangeAllBubblesBehaviour("default");
 
-            if (Input.GetKeyDown(KeyCode.S))
-                currentBehaviour = "default";
+            //if (Input.GetKeyDown(KeyCode.D))
+            //    ChangeAllBubblesBehaviour("calm");
 
-            if (Input.GetKeyDown(KeyCode.D))
-                currentBehaviour = "calm";
-
-            if (Input.GetKeyDown(KeyCode.F))
-                currentBehaviour = "positive";
-
-            if (prevBehav != currentBehaviour)
-            {
-                ChangeBubblesBehaviour();
-            }
+            //if (Input.GetKeyDown(KeyCode.F))
+            //    ChangeAllBubblesBehaviour("positive");
         }
     }
 
-    private void ChangeBubblesBehaviour()
+    public void ChangeAllBubblesBehaviour(string newBehaviour)
     {
+        currentBehaviour = newBehaviour;
+
         foreach (GameObject b in bubbles)
             b.GetComponent<Bubble>().ChangeBehaviour(currentBehaviour);
     }
@@ -187,6 +183,7 @@ public class BubbleSpawner : MonoBehaviour
 
     public GameObject SpawnBuuuble(Vector3 position, string behaviour, int index)
     {
+        numBublees++;
         var newBubble = Instantiate(bubblePrefab, position, transform.rotation);
         newBubble.GetComponentInChildren<Text>().text = negativeThoughts[index];
         newBubble.GetComponent<Bubble>().ChangeBehaviour(behaviour);
@@ -194,6 +191,11 @@ public class BubbleSpawner : MonoBehaviour
 
         cooldown = 60.0f / BPM;
         return newBubble;
+    }
+
+    public void SpawnBubbles(int num)
+    {
+        numBublees += num;
     }
 
     public void PopBubble(GameObject bubble)
@@ -280,7 +282,7 @@ public class BubbleSpawner : MonoBehaviour
 
                 if(buuublieText.text.Equals(negativeThoughts[i]))
                 {
-                    Debug.Log("Setting text from: " + negativeThoughts[i] + ", to: " + positiveThoughts[i]);
+                    //Debug.Log("Setting text from: " + negativeThoughts[i] + ", to: " + positiveThoughts[i]);
                     buuublies.GetComponentInChildren<Text>().text = positiveThoughts[i];
                     index = i;
                     break;

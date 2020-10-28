@@ -38,15 +38,19 @@ public class BubbleEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name + "entered");
+        //Debug.Log(other.gameObject.name + "entered");
         if (other.gameObject.tag.ToLower().Equals("player"))
         {
-            Debug.Log("startFade");
+            //Debug.Log("startFade");
             StartCoroutine(FogUp());
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 
-
+    public void RemoveFog()
+    {
+        StartCoroutine(FogOff());
+    }
 
     private IEnumerator FogUp()
     {
@@ -64,13 +68,15 @@ public class BubbleEvent : MonoBehaviour
             RenderSettings.fogEndDistance = Mathf.SmoothStep(previousFogEnd, fogEnd, fade / timeToFade);
 
             var bigSmart = Mathf.Sin(Mathf.SmoothStep(0, Mathf.PI / 2, fade / timeToFade));
-            audio.volume = bigSmart;
+            audio.volume = bigSmart * 0.6f;
 
             if (imAfraudlol != null)
                 imAfraudlol.alpha = bigSmart;
 
             yield return null;
         }
+
+        GetComponentInParent<PopupAnalogy>().StartPopupshit();
     }
 
     private IEnumerator FogOff()
@@ -89,7 +95,7 @@ public class BubbleEvent : MonoBehaviour
             RenderSettings.fogEndDistance = Mathf.SmoothStep(previousFogEnd, fogEnd, fade / timeToFade);
 
             var bigSmart = Mathf.Sin(Mathf.SmoothStep(0, Mathf.PI / 2, fade / timeToFade));
-            audio.volume = bigSmart;
+            audio.volume = bigSmart * 0.6f;
 
             if (imAfraudlol != null)
                 imAfraudlol.alpha = bigSmart;
