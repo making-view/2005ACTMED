@@ -105,7 +105,7 @@ public class Bubble : MonoBehaviour
 
         offset = UnityEngine.Random.Range(0, Mathf.PI);
 
-        text.text = parent.GetText();
+        //text.text = parent.GetText();
         XZTarget = parent.GetTarget();
     }
 
@@ -173,12 +173,15 @@ public class Bubble : MonoBehaviour
 
     private IEnumerator PlayPlopp()
     {
+
         var grabbable = GetComponent<OVRGrabbable>();
 
         if (grabbable.grabbedBy != null)
         {
             grabbable.grabbedBy.ForceRelease(grabbable);
         }
+
+        yield return new WaitForEndOfFrame();
 
         foreach(Transform child in transform)
         {
@@ -199,7 +202,7 @@ public class Bubble : MonoBehaviour
     {
         foreach (Behaviour b in behaviours)
         {
-            if(b.name.Equals(newBehaviour))
+            if(b.name.ToLower().Equals(newBehaviour.ToLower()))
             {
                 speed = b.speed;
                 devMag = b.devMag;

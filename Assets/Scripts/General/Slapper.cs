@@ -20,6 +20,7 @@ public class Slapper : MonoBehaviour
 
     void Start()
     {
+        ChangeInteractionMode(interactionmode);
         spawner = GameObject.FindObjectOfType<BubbleSpawner>();
         prevPosition = transform.position;
     }
@@ -40,12 +41,33 @@ public class Slapper : MonoBehaviour
                     Bonk(other);
                     break;
                 case InteractionMode.Changers:
+                    Change(other);
                     break;
                 case InteractionMode.Poppers:
                     Pop(other);
                     break;
             }
         }
+    }
+
+    private void Change(Collider other)
+    {
+        var index = spawner.MakePositive(other.gameObject);
+        if (index >= 0)
+        {
+            spawner.SpawnBuuuble(other.gameObject.transform.position, "default", index);
+            other.gameObject.GetComponent<Bubble>().ChangeBehaviour("positive");
+        }
+    }
+
+    public void ChangeInteractionMode(InteractionMode newMode)
+    {
+        interactionmode = newMode;
+        var grabber = GetComponentInParent<OVRGrabber>();
+        if (grabber.grabbedObject != null)
+            grabber.ForceRelease(grabber.grabbedObject);
+       
+        grabber.enabled = interactionmode != InteractionMode.Poppers;
     }
 
     private void Pop(Collider other)

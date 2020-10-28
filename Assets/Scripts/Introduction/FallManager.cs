@@ -20,6 +20,8 @@ public class FallManager : MonoBehaviour
     [SerializeField] float saveCooldown = 1.0f;
     private float maxSaveCooldown = 1.0f;
 
+    public float fadeTime = 1.5f;
+
     [SerializeField] Transform bridgeMiddle = null;
 
     Transform lastSafeLocationDebugTransform = null;
@@ -112,8 +114,8 @@ public class FallManager : MonoBehaviour
     IEnumerator MovePlayerBackToBridge()
     {
         Debug.Log("player fell off");
-        float fadetime = 1.5f;
-        fader.fadeTime = fadetime/3;
+
+        fader.fadeTime = fadeTime / 3;
 
         offBridgeLastFrame = false;
 
@@ -123,32 +125,37 @@ public class FallManager : MonoBehaviour
         audio.Stop();
         audio.Play();
 
-        yield return new WaitForSeconds(fadetime / 3);
+        yield return new WaitForSeconds(fadeTime / 3);
         fader.FadeOut();
-        yield return new WaitForSeconds(fadetime / 3);
+        yield return new WaitForSeconds(fadeTime / 3);
         //problem for neste uke. This shit fuck yo
         rig.enabled = false;
         rig.gameObject.transform.position =
             new Vector3(bridgeMiddle.position.x, lastSafeLocation.y, lastSafeLocation.z)
-            -CalculateOffset();
+            - CalculateOffset();
 
-        foreach(Rigidbody r in rig.gameObject.GetComponentsInChildren<Rigidbody>())
+        foreach (Rigidbody r in rig.gameObject.GetComponentsInChildren<Rigidbody>())
             r.velocity = Vector3.zero;
 
-        yield return new WaitForSeconds(fadetime / 5);
+        yield return new WaitForSeconds(fadeTime / 5);
 
-        fader.fadeTime = 2.0f;
+        fader.fadeTime = fadeTime;
         fader.FadeIn();
         onBridge = true;
         offBridgeLastFrame = false;
         rig.enabled = true;
-        yield return new WaitForSeconds(fadetime / 3);
+        yield return new WaitForSeconds(fadeTime / 3);
         fallingOff = false;
 
 
     }
 
-    private void UpdateDebug()
+    public void SetFadetime(float fadeTime)
+    {
+        this.fadeTime = fadeTime;
+    }
+
+        private void UpdateDebug()
     {
         lastSafeLocationDebugTransform.position = lastSafeLocation;
         nextSafeLocationDebugTransform.position = nextSafeLocation;

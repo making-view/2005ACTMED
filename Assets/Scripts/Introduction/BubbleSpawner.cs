@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(MeshRenderer))]
 public class BubbleSpawner : MonoBehaviour
@@ -86,13 +88,13 @@ public class BubbleSpawner : MonoBehaviour
             new System.IO.StreamReader(file);
         while ((line = stream.ReadLine()) != null)
         {
-            Debug.Log("reading: " + line);
+            //Debug.Log("reading: " + line);
             counter++;
             list.Add(line);
         }
 
         stream.Close();
-        Debug.Log("There were " + counter + " lines.");
+        //Debug.Log("There were " + counter + " lines.");
 
         System.Console.ReadLine();
         return list;
@@ -141,6 +143,8 @@ public class BubbleSpawner : MonoBehaviour
                 Destroy(buble);
             }
 
+            var prevBehav = currentBehaviour;
+
             if (Input.GetKeyDown(KeyCode.A))
                 currentBehaviour = "angwy";
 
@@ -149,8 +153,14 @@ public class BubbleSpawner : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.D))
                 currentBehaviour = "calm";
-            
-             ChangeBubblesBehaviour();
+
+            if (Input.GetKeyDown(KeyCode.F))
+                currentBehaviour = "positive";
+
+            if (prevBehav != currentBehaviour)
+            {
+                ChangeBubblesBehaviour();
+            }
         }
     }
 
@@ -160,7 +170,7 @@ public class BubbleSpawner : MonoBehaviour
             b.GetComponent<Bubble>().ChangeBehaviour(currentBehaviour);
     }
 
-    public void SpawnBuuuble()
+    public GameObject SpawnBuuuble()
     {
         GameObject target = GetTarget();
         Vector3 spawnPoint = target.transform.position;
@@ -168,8 +178,22 @@ public class BubbleSpawner : MonoBehaviour
         var newBubble = Instantiate(bubblePrefab, spawnPoint, transform.rotation);
         newBubble.GetComponent<Bubble>().ChangeBehaviour(currentBehaviour);
         bubbles.Add(newBubble);
+        newBubble.GetComponentInChildren<Text>().text = GetNegative();
 
         cooldown = 60.0f / BPM;
+
+        return newBubble;
+    }
+
+    public GameObject SpawnBuuuble(Vector3 position, string behaviour, int index)
+    {
+        var newBubble = Instantiate(bubblePrefab, position, transform.rotation);
+        newBubble.GetComponentInChildren<Text>().text = negativeThoughts[index];
+        newBubble.GetComponent<Bubble>().ChangeBehaviour(behaviour);
+        bubbles.Add(newBubble);
+
+        cooldown = 60.0f / BPM;
+        return newBubble;
     }
 
     public void PopBubble(GameObject bubble)
@@ -239,5 +263,31 @@ public class BubbleSpawner : MonoBehaviour
         bubPosn = (bubPosn + 1) % bubblePopSounds.Count;
 
         return clip;
+    }
+
+
+    public int MakePositive(GameObject buuublies)
+    {
+        var index = -1;
+
+        var buuublieText = buuublies.GetComponentInChildren<Text>();
+
+        if (!positiveThoughts.Any(pt => pt.Equals(buuublieText)))
+        {
+            for (int i = 0; i < negativeThoughts.Count; i++)
+            {
+                //Debug.Log("Comparing '" + buuublies.GetComponentInChildren<Text>().text.Trim().ToLower() + "' and '" + negativeThoughts[i].Trim().ToLower() + "'");
+
+                if(buuublieText.text.Equals(negativeThoughts[i]))
+                {
+                    Debug.Log("Setting text from: " + negativeThoughts[i] + ", to: " + positiveThoughts[i]);
+                    buuublies.GetComponentInChildren<Text>().text = positiveThoughts[i];
+                    index = i;
+                    break;
+                }
+            }
+        }
+
+        return index;
     }
 }
