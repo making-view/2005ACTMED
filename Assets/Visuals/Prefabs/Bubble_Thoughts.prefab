@@ -278,9 +278,10 @@ GameObject:
   - component: {fileID: 1780130841}
   - component: {fileID: 1829025301}
   - component: {fileID: 1829025305}
+  - component: {fileID: 1813453694572621749}
   m_Layer: 10
   m_Name: Bubble_Thoughts
-  m_TagString: Untagged
+  m_TagString: GayBubble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,7 +295,7 @@ Transform:
   m_GameObject: {fileID: 6062465081129937912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1681672291922585839}
   - {fileID: 3228958691468560027}
@@ -315,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_allowOffhandGrab: 1
-  m_snapPosition: 0
+  m_snapPosition: 1
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints:
@@ -332,8 +333,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22b8f98704e3b1479491a7ec68d2595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  behaviours:
+  - name: default
+    speed: 50
+    devMag: 50
+    maxFollow: 20
+    followOrAscend: 0.5
+    spotsColor: {r: 0, g: 0.8745098, b: 1, a: 1}
+    extremeColor: {r: 1, g: 0, b: 0.023529412, a: 1}
+  - name: angwy
+    speed: 300
+    devMag: 70
+    maxFollow: 20
+    followOrAscend: 0.33
+    spotsColor: {r: 1, g: 0, b: 0.84102154, a: 0}
+    extremeColor: {r: 0.22104454, g: 1, b: 0, a: 0}
+  - name: calm
+    speed: 5
+    devMag: 20
+    maxFollow: 10
+    followOrAscend: 0.5
+    spotsColor: {r: 0.5915226, g: 0.49803922, b: 0.7176471, a: 0}
+    extremeColor: {r: 0.24167076, g: 0.6415094, b: 0.19668922, a: 0}
   parent: {fileID: 0}
-  speed: 22.3
+  plopp: {fileID: 0}
+  speed: 53
   devMag: 14
   maxFollow: 20
   followOrAscend: 0.23
@@ -367,6 +391,102 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &1813453694572621749
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062465081129937912}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 732c682fc9650cb4c8427d6ef813801c, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 0.15
+  MaxDistance: 25
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.8
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1214909184258395908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -473,6 +593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1b79056e3c0b0f245acc46ae4f5c9cf1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b79056e3c0b0f245acc46ae4f5c9cf1, type: 3}

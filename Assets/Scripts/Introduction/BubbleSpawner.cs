@@ -39,7 +39,11 @@ public class BubbleSpawner : MonoBehaviour
 
     private List<GameObject> bubbles = null;
 
+    [SerializeField] List<AudioClip> bubblePopSounds = null;
+    private int bubPosn = 0;
+
     public bool active { get; set; }
+    public string currentBehaviour = "default";
 
     //amount of bubbles containing positive messagess
     [SerializeField]
@@ -123,19 +127,37 @@ public class BubbleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(active) {
+        if (active)
+        {
             if ((cooldown -= Time.deltaTime) <= 0 && bubbles.Count < numBublees)
             {
                 SpawnBuuuble();
             }
 
-            while(bubbles.Count > numBublees)
+            while (bubbles.Count > numBublees)
             {
                 var buble = bubbles[bubbles.Count - 1];
                 bubbles.Remove(buble);
                 Destroy(buble);
             }
+
+            if (Input.GetKeyDown(KeyCode.A))
+                currentBehaviour = "angwy";
+
+            if (Input.GetKeyDown(KeyCode.S))
+                currentBehaviour = "default";
+
+            if (Input.GetKeyDown(KeyCode.D))
+                currentBehaviour = "calm";
+            
+             ChangeBubblesBehaviour();
         }
+    }
+
+    private void ChangeBubblesBehaviour()
+    {
+        foreach (GameObject b in bubbles)
+            b.GetComponent<Bubble>().ChangeBehaviour(currentBehaviour);
     }
 
     public void SpawnBuuuble()
@@ -143,9 +165,17 @@ public class BubbleSpawner : MonoBehaviour
         GameObject target = GetTarget();
         Vector3 spawnPoint = target.transform.position;
         spawnPoint.y = minY.transform.position.y;
+        var newBubble = Instantiate(bubblePrefab, spawnPoint, transform.rotation);
+        newBubble.GetComponent<Bubble>().ChangeBehaviour(currentBehaviour);
+        bubbles.Add(newBubble);
 
-        bubbles.Add(Instantiate(bubblePrefab, spawnPoint, transform.rotation));
-        cooldown = 60 / BPM;
+        cooldown = 60.0f / BPM;
+    }
+
+    public void PopBubble(GameObject bubble)
+    {
+        bubbles.Remove(bubble);
+        bubble.GetComponent<Bubble>().Kill();
     }
 
     //gets new target for bubble to follow
@@ -200,5 +230,14 @@ public class BubbleSpawner : MonoBehaviour
         }
 
         return negative;
+    }
+
+    //return a clip from the list of sounds
+    public AudioClip GetPopSound()
+    {
+        var clip = bubblePopSounds[bubPosn];
+        bubPosn = (bubPosn + 1) % bubblePopSounds.Count;
+
+        return clip;
     }
 }
