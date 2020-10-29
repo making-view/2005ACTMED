@@ -19,6 +19,7 @@ public class ToPoint : MonoBehaviour
     private bool moved = false;
 
     [SerializeField] bool fadeOutFirst = true;
+    [SerializeField] bool parentToNewPosition = true;
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +78,9 @@ public class ToPoint : MonoBehaviour
 
         startRig.transform.position = endPosition.transform.position - offset;
         startRig.transform.rotation = endPosition.transform.rotation;
-        startRig.transform.parent = endPosition.transform;
+
+        if(parentToNewPosition)
+            startRig.transform.parent = endPosition.transform;
 
         //fade in and wait
         fade.FadeIn();

@@ -8405,7 +8405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292144433}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.006, y: 0.238, z: 0}
+  m_LocalPosition: {x: -0.006, y: 0.352, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1282327201}
@@ -10554,6 +10554,7 @@ MonoBehaviour:
   moveTimer: 3
   reEnableController: 0
   fadeOutFirst: 1
+  parentToNewPosition: 1
 --- !u!1001 &1643099118
 PrefabInstance:
   m_ObjectHideFlags: 0

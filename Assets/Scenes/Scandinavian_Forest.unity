@@ -690,6 +690,7 @@ MonoBehaviour:
   moveTimer: 0.5
   reEnableController: 1
   fadeOutFirst: 0
+  parentToNewPosition: 0
 --- !u!4 &211700213
 Transform:
   m_ObjectHideFlags: 0
