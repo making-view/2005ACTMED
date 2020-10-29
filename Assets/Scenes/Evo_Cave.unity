@@ -6633,7 +6633,7 @@ Transform:
   m_LocalScale: {x: 0.20877, y: 1, z: 0.26179}
   m_Children: []
   m_Father: {fileID: 861510273}
-  m_RootOrder: 176
+  m_RootOrder: 164
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!65 &503276958
 BoxCollider:
@@ -10602,6 +10602,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+  - delay: 10
+    ue:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1712940700}
+          m_MethodName: ChangeAllBubblesBehaviour
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: calm
+            m_BoolArgument: 1
+          m_CallState: 2
   onExitInvoke: []
   customTag: Cart
 --- !u!65 &785398678
@@ -12247,6 +12262,7 @@ Transform:
   - {fileID: 1179291648}
   - {fileID: 1435843841}
   - {fileID: 812211253}
+  - {fileID: 1325190220}
   - {fileID: 169310455}
   - {fileID: 2002835030}
   - {fileID: 656268614}
@@ -12264,7 +12280,7 @@ Transform:
   - {fileID: 1101861118}
   - {fileID: 1626322147}
   - {fileID: 215312487}
-  - {fileID: 1325190220}
+  - {fileID: 1105653208}
   - {fileID: 59144923}
   - {fileID: 1999933580}
   - {fileID: 1651982421}
@@ -12294,7 +12310,7 @@ Transform:
   - {fileID: 1363980274}
   - {fileID: 104765225}
   - {fileID: 1620057721}
-  - {fileID: 1105653208}
+  - {fileID: 503276957}
   - {fileID: 1228691452}
   - {fileID: 1557570233}
   - {fileID: 938570744}
@@ -12307,7 +12323,6 @@ Transform:
   - {fileID: 328006218}
   - {fileID: 1379814922}
   - {fileID: 1488657230}
-  - {fileID: 503276957}
   - {fileID: 373734855}
   - {fileID: 1222167769}
   - {fileID: 1158705724}
@@ -15450,7 +15465,7 @@ Transform:
   m_LocalScale: {x: 1.671717, y: 0.16326, z: 1.14282}
   m_Children: []
   m_Father: {fileID: 861510273}
-  m_RootOrder: 163
+  m_RootOrder: 134
   m_LocalEulerAnglesHint: {x: 170.307, y: 41.847, z: 11.194992}
 --- !u!65 &1105653209
 BoxCollider:
@@ -19603,18 +19618,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
         type: 3}
+      propertyPath: bubblePopSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
+        type: 3}
       propertyPath: objectsVisible
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
         type: 3}
       propertyPath: BPM
-      value: 22
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
         type: 3}
       propertyPath: numBublees
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
         type: 3}
@@ -19631,6 +19651,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
+        type: 3}
+      propertyPath: currentBehaviour
+      value: angwy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
+        type: 3}
+      propertyPath: bubblePopSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a95166931d6350d42b8b0e20e90dc23b, type: 3}
+    - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
+        type: 3}
+      propertyPath: bubblePopSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 839478d1979ae8d45b407f1faff3f69e, type: 3}
+    - target: {fileID: 8197029773405459626, guid: d423fdb688856404883d3186608568ff,
+        type: 3}
+      propertyPath: bubblePopSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ef5900417e9954499eb156bb34b5107, type: 3}
     - target: {fileID: 8197029773641535150, guid: d423fdb688856404883d3186608568ff,
         type: 3}
       propertyPath: m_Enabled
@@ -19784,7 +19824,7 @@ Transform:
   m_LocalScale: {x: 1.671717, y: 0.16326, z: 1.14282}
   m_Children: []
   m_Father: {fileID: 861510273}
-  m_RootOrder: 133
+  m_RootOrder: 116
   m_LocalEulerAnglesHint: {x: 169.902, y: 41.76799, z: 10.735992}
 --- !u!65 &1325190221
 BoxCollider:

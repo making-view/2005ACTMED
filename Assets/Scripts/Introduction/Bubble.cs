@@ -101,12 +101,14 @@ public class Bubble : MonoBehaviour
             plopp = parent.GetPopSound();
 
             audio.pitch += UnityEngine.Random.Range(-0.2f, 0.2f);
+            XZTarget = parent.GetTarget();
         }
+        else
+            Debug.Log("orphan desu");
 
         offset = UnityEngine.Random.Range(0, Mathf.PI);
 
         //text.text = parent.GetText();
-        XZTarget = parent.GetTarget();
     }
 
     // Update is called once per frame
