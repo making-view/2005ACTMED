@@ -649,6 +649,87 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -982167125216493559, guid: 655e2aa251720ab47ae672068e4ee1a8, type: 3}
+--- !u!1 &211700211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211700213}
+  - component: {fileID: 211700212}
+  - component: {fileID: 211700214}
+  m_Layer: 0
+  m_Name: FadeToStartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &211700212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211700211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd683c4671e5ce141b7ae493e69a66f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startRig: {fileID: 240369025}
+  endPosition: {fileID: 211700211}
+  eventBeforeMove:
+    m_PersistentCalls:
+      m_Calls: []
+  eventAfterMove:
+    m_PersistentCalls:
+      m_Calls: []
+  moveTimer: 0.5
+  reEnableController: 1
+  fadeOutFirst: 0
+--- !u!4 &211700213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211700211}
+  m_LocalRotation: {x: -0, y: -0.9800185, z: -0, w: -0.19890632}
+  m_LocalPosition: {x: -38.169495, y: 3, z: 18.067173}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 157.054, z: 0}
+--- !u!114 &211700214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211700211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2c1490044f6f94e92b527eefc0aafc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 211700212}
+        m_MethodName: StartTransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &214734249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6249954565236234317, guid: e468a4beece65aa438b19971be923ed9,

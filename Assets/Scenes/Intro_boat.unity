@@ -8405,7 +8405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292144433}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.016, y: 0.659, z: 0}
+  m_LocalPosition: {x: -0.006, y: 0.238, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1282327201}
@@ -8824,6 +8824,9 @@ MonoBehaviour:
   sceneToLoad: Scandinavian_Forest
   tag: Cart
   fade: {fileID: 1511363544}
+  doBefore:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1456358199
 GameObject:
   m_ObjectHideFlags: 0
@@ -10550,6 +10553,7 @@ MonoBehaviour:
         m_CallState: 2
   moveTimer: 3
   reEnableController: 0
+  fadeOutFirst: 1
 --- !u!1001 &1643099118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13623,66 +13627,83 @@ MonoBehaviour:
   minY: {fileID: 1930541322}
   maxY: {fileID: 48522359}
   positiveThoughts:
-  - "\u2018Jeg er verdens beste menneske\u2019"
-  - "\u2018Jeg dummer meg aldri ut\u2019"
-  - "\u2018Jeg har det aldri vondt\u2019"
-  - "\u2018Jeg er best p\xE5 alt\u2019"
-  - "\u2018Jeg gj\xF8r alt p\xE5 egenh\xE5nd\u2019"
-  - "\u2018Alt er perfekt n\xE5\u2019"
-  - "\u2018Jeg har bare gode minner\u2019"
-  - "\u2018Jeg er best\u2019"
-  - "\u2018Jeg er sterkest\u2019"
-  - "\u2018ingenting kan s\xE5re meg\u2019"
-  - "\u2018ingenting g\xE5r galt\u2019"
-  - "\u2018Jeg er alltid lykkelig\u2019"
-  - "\u2018Det blir bra uansett\u2019"
-  - "\u2018alle liker meg\u2019"
-  - "'Jeg er verdens smarteste\u2019"
-  - "\u2018Alle elsker meg\u2019"
-  - "\u2018jeg er et fantastisk menneske\u2019 "
-  - "\u2018Jeg klarer alt\u2019 "
-  - "\u2018alt g\xE5r bra for meg\u2019 "
-  - "\u2018noe forferdelig kommer aldri til \xE5 skje\u2019 "
+  - Jeg er den beste!
+  - Alt blir bra!
+  - Jeg starter i morgen!
+  - "Jeg beh\xF8ver ikke anstrenge meg"
+  - "Jeg kan jo bare f\xE5 hjelp"
+  - Jeg har masse venner!
+  - Alt blir bedre snart
+  - Jeg er glad!
+  - Jeg er ikke redd!
+  - Jeg blir aldri avvist
+  - "Jeg lar bare v\xE6re \xE5 tenke p\xE5 dem!"
+  - Jeg er best!
+  - Jeg er sterk
+  - "Jeg skal gjennomf\xF8re alt!"
+  - Jeg er robust
+  - Selvsagt klarer jeg det
+  - Jeg er lykkelig!
+  - "Jeg skal motst\xE5 ALLE fristelser"
+  - alt er viktig og meningsfylt
+  - Alt blir fantastisk!
+  - Jeg er slett ikke ensom
+  - Jeg er en vinner
+  - Jeg bryr meg ikke!
+  - "Jeg f\xE5r til alt"
+  - Jeg er best!
+  - Halvveis er bra nok
+  - jeg klarer meg uten penger, jeg
+  - Jeg er pen
+  - Jeg er smart
+  - alle elsker meg
+  - jeg er et fantastisk menneske
+  - "jeg klarer alt det jeg kunne f\xF8r"
+  - alle liker meg
+  - "alt g\xE5r bra for meg"
+  - det skjer aldri noe forferdelig
+  - jeg klarer alt
   negativeThoughts:
-  - "\u2018Jeg er ikke god nok\u2019"
-  - "\u2018Tenk om jeg dummer meg ut\u2019"
-  - "\u2018Det blir aldri bedre\u2019"
-  - "\u2018Jeg burde bare ta meg sammen\u2019"
-  - "\u2018Jeg burde klare det bedre\u2019"
-  - "\u2018Jeg burde klare ting p\xE5 egenh\xE5nd\u2019"
-  - "\u2018Jeg er helt alene\u2019"
-  - "\u2018Alt var bedre f\xF8r\u2019"
-  - "\u2018Jeg burde v\xE6re glad\u2019"
-  - "\u2018Jeg burde ikke v\xE6re redd\u2019"
-  - "\u2018Tenk om jeg blir avvist\u2019"
-  - "\u2018Jeg har for mange vonde minner\u2019"
-  - "\u2018Jeg har ingen selvtillit\u2019"
-  - "\u2018Jeg er svak\u2019"
-  - "\u2018Jeg gir alltid opp\u2019"
-  - "\u2018Jeg er s\xE5rbar\u2019"
-  - "\u2018Tenk om jeg ikke klarer det\u2019"
-  - "\u2018Jeg er ulykkelig\u2019"
-  - "\u2018Jeg klarer ikke motst\xE5 fristelser\u2019"
-  - "\u2018Det er ikke noe vits\u2019"
-  - "\u2018Det blir ikke bra uansett\u2019"
-  - "\u2018Jeg er den eneste i verden som er ensom\u2019"
-  - "\u2018Jeg er en fiasko\u2019"
-  - "\u2018Tenk om noen s\xE5 meg n\xE5\u2019"
-  - "\u2018Jeg f\xE5r ikke til noe\u2019"
-  - "\u2018Jeg burde v\xE6rt bedre\u2019"
-  - "\u2018Jeg burde gjort mer\u2019"
-  - "\u2018Jeg burde tjent mer penger\u2019"
-  - "\u2018Jeg er stygg\u2019"
-  - "Jeg er dum\u2019"
-  - "\u2018Ingen elsker meg\u2019"
-  - "\u2018jeg er et d\xE5rlig menneske\u2019 "
-  - "\u2018Jeg klarer ingenting av det jeg kunne f\xF8r\u2019 "
-  - "\u2018Ingen liker meg\u2019 "
-  - "\u2018alt g\xE5r galt for meg\u2019 "
-  - "\u2018noe forferdelig kommer til \xE5 skje\u2019 "
-  - "\u2018jeg klarer det ikke\u2019"
+  - Jeg er ikke god nok
+  - Det blir aldri bedre
+  - Jeg burde bare ta meg sammen
+  - Jeg burde klare det bedre
+  - "Jeg burde klare ting p\xE5 egenh\xE5nd"
+  - Jeg er helt alene
+  - "Alt var bedre f\xF8r"
+  - "Jeg burde v\xE6re glad"
+  - "Jeg burde ikke v\xE6re redd"
+  - Tenk om jeg blir avvist
+  - Jeg har for mange vonde minner
+  - Jeg har ingen selvtillit
+  - Jeg er svak
+  - Jeg gir alltid opp
+  - "Jeg er s\xE5rbar"
+  - Tenk om jeg ikke klarer det
+  - Jeg er ulykkelig
+  - "Jeg klarer ikke motst\xE5 fristelser"
+  - Det er ikke noe vits
+  - Det blir ikke bra uansett
+  - Jeg er den eneste i verden som er ensom
+  - Jeg er en fiasko
+  - "Tenk om noen s\xE5 meg n\xE5"
+  - "Jeg f\xE5r ikke til noe"
+  - "Jeg burde v\xE6rt bedre"
+  - Jeg burde gjort mer
+  - Jeg burde tjent mer penger
+  - Jeg er stygg
+  - Jeg er dum
+  - Ingen elsker meg
+  - "jeg er et d\xE5rlig menneske"
+  - "Jeg klarer ingenting av det jeg kunne f\xF8r"
+  - Ingen liker meg
+  - "alt g\xE5r galt for meg"
+  - "noe forferdelig kommer til \xE5 skje"
+  - jeg klarer det ikke
   BPM: 0
-  active: 0
+  numBublees: 50
+  bubblePopSounds: []
+  currentBehaviour: default
   positivePercentage: 0
 --- !u!136 &2035240874
 CapsuleCollider:

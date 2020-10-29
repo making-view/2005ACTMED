@@ -2,8 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Collider))]
-public class FadeToPoint : MonoBehaviour
+public class ToPoint : MonoBehaviour
 {
     [Tooltip("OVRCameraRig w OVRScreenFade on player head")]
     [SerializeField] OVRPlayerController startRig = null;
@@ -19,6 +18,7 @@ public class FadeToPoint : MonoBehaviour
     [SerializeField] bool reEnableController = true;
     private bool moved = false;
 
+    [SerializeField] bool fadeOutFirst = true;
 
     // Start is called before the first frame update
     void Start()
@@ -43,9 +43,14 @@ public class FadeToPoint : MonoBehaviour
     {
         if(!moved && other.gameObject.tag.Equals("Player"))
         {
-            StartCoroutine(GoToPoint());
-            moved = true;
+            StartTransition();
         }
+    }
+
+    public void StartTransition()
+    {
+        StartCoroutine(GoToPoint());
+        moved = true;
     }
 
     IEnumerator GoToPoint()
@@ -55,13 +60,16 @@ public class FadeToPoint : MonoBehaviour
         //divide fade and movement into 3 chunks (fade-in, wait, fade-out)
         fade.fadeTime = moveTimer / 3;
 
-        //start fading and disable controller if there is one
-        fade.FadeOut();
-        if (startRig.GetComponent<CharacterController>() != null)
-            startRig.GetComponent<CharacterController>().enabled = false;
+        if (fadeOutFirst)
+        {
+            fade.FadeOut();
+            if (startRig.GetComponent<CharacterController>() != null)
+                startRig.GetComponent<CharacterController>().enabled = false;
 
-        //fade out to black
-        yield return new WaitForSeconds(fade.fadeTime * 2);
+            //fade out to black
+            yield return new WaitForSeconds(fade.fadeTime * 2);
+        }
+        //start fading and disable controller if there is one
 
         //move rig to point w rotation
         var camPos = startRig.GetComponentInChildren<Camera>().transform.position;
