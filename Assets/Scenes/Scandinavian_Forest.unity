@@ -5887,6 +5887,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    onBeforeEventNarration:
+      m_PersistentCalls:
+        m_Calls:
         - m_Target: {fileID: 1971703550}
           m_MethodName: Stop
           m_Mode: 1
@@ -5918,6 +5921,9 @@ MonoBehaviour:
             m_StringArgument: bonkers
             m_BoolArgument: 0
           m_CallState: 2
+    onBeforeEventNarration:
+      m_PersistentCalls:
+        m_Calls: []
   - name: run
     task: 2
     narration: {fileID: 8300000, guid: 5ef4f39f2071b60448ef8f8949b1a335, type: 3}
@@ -5925,6 +5931,9 @@ MonoBehaviour:
     delayOnComplete: 3
     playFeedback: 0
     onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    onBeforeEventNarration:
       m_PersistentCalls:
         m_Calls: []
   - name: Touch
@@ -5947,6 +5956,9 @@ MonoBehaviour:
             m_StringArgument: changers
             m_BoolArgument: 0
           m_CallState: 2
+    onBeforeEventNarration:
+      m_PersistentCalls:
+        m_Calls: []
   - name: Angry
     task: 4
     narration: {fileID: 8300000, guid: 58828417068d10f469ca1292b1233741, type: 3}
@@ -5954,6 +5966,20 @@ MonoBehaviour:
     delayOnComplete: 2
     playFeedback: 1
     onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 865873041}
+          m_MethodName: ChangeAllBubblesBehaviour
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: angwy
+            m_BoolArgument: 0
+          m_CallState: 2
+    onBeforeEventNarration:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1208839388}
@@ -5965,17 +5991,6 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: bonkers
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 865873041}
-          m_MethodName: ChangeAllBubblesBehaviour
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: angwy
             m_BoolArgument: 0
           m_CallState: 2
   - name: CalmDown
@@ -5998,6 +6013,9 @@ MonoBehaviour:
             m_StringArgument: bonkers
             m_BoolArgument: 0
           m_CallState: 2
+    onBeforeEventNarration:
+      m_PersistentCalls:
+        m_Calls: []
   - name: Let it go
     task: 4
     narration: {fileID: 8300000, guid: 38f2e556c76a25f4689d4db58bba9321, type: 3}
@@ -6029,6 +6047,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    onBeforeEventNarration:
+      m_PersistentCalls:
+        m_Calls: []
   - name: Remove fog
     task: 4
     narration: {fileID: 0}
@@ -6049,6 +6070,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    onBeforeEventNarration:
+      m_PersistentCalls:
+        m_Calls: []
   - name: Wait
     task: 4
     narration: {fileID: 0}
@@ -6056,6 +6080,9 @@ MonoBehaviour:
     delayOnComplete: 13
     playFeedback: 1
     onStartOfEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    onBeforeEventNarration:
       m_PersistentCalls:
         m_Calls: []
   feedback: {fileID: 8300000, guid: 440171aa1be6c9c47935ac76c3e383a3, type: 3}

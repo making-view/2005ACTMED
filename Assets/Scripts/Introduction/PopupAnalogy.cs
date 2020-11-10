@@ -30,6 +30,7 @@ public class PopupAnalogy : MonoBehaviour
 
         [SerializeField] public bool playFeedback = true;
         [SerializeField] public UnityEvent onStartOfEvent = null;
+        [SerializeField] public UnityEvent onBeforeEventNarration = null;
     }
 
     private int maxTask = 0;
@@ -46,7 +47,7 @@ public class PopupAnalogy : MonoBehaviour
     {
         narrationSource = gameObject.AddComponent<AudioSource>();
         feedbackSource = gameObject.AddComponent<AudioSource>();
-        feedbackSource.volume = 0.5f;
+        feedbackSource.volume = 0.3f;
         feedbackSource.clip = feedback;
     }
 
@@ -125,7 +126,7 @@ public class PopupAnalogy : MonoBehaviour
                 narrationSource.Play();
             }
 
-            //events[newIndex].onBeforeEventNarration.Invoke();
+            events[newIndex].onBeforeEventNarration.Invoke();
 
             while (narrationSource.isPlaying)
                 yield return null;
