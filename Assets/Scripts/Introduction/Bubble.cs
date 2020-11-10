@@ -118,7 +118,7 @@ public class Bubble : MonoBehaviour
         if (size < Mathf.PI / 2)
         {
             size += Time.deltaTime;
-            float scale = Mathf.Sin(size) * 2.0f;
+            float scale = Mathf.Sin(size) * 1.5f;
             transform.localScale = new Vector3(scale, scale, scale);
         }
 

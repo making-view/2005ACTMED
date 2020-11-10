@@ -10742,6 +10742,14 @@ PrefabInstance:
       propertyPath: StartWithControllers
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
+      propertyPath: CanOwnMicrophone
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
+      propertyPath: EnableLaughter
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
 --- !u!1 &787326443 stripped
@@ -22434,6 +22442,7 @@ MonoBehaviour:
   moveTimer: 0.5
   reEnableController: 0
   fadeOutFirst: 0
+  parentToNewPosition: 1
 --- !u!114 &1421061122
 MonoBehaviour:
   m_ObjectHideFlags: 0

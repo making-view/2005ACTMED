@@ -163,7 +163,8 @@ public class BubbleSpawner : MonoBehaviour
         currentBehaviour = newBehaviour;
 
         foreach (GameObject b in bubbles)
-            b.GetComponent<Bubble>().ChangeBehaviour(currentBehaviour);
+            if(b != null)
+                b.GetComponent<Bubble>().ChangeBehaviour(currentBehaviour);
     }
 
     public GameObject SpawnBuuuble()
@@ -268,7 +269,7 @@ public class BubbleSpawner : MonoBehaviour
     }
 
 
-    public int MakePositive(GameObject buuublies)
+    public int MakeTemporaryPositive(GameObject buuublies)
     {
         var index = -1;
 
@@ -285,11 +286,27 @@ public class BubbleSpawner : MonoBehaviour
                     //Debug.Log("Setting text from: " + negativeThoughts[i] + ", to: " + positiveThoughts[i]);
                     buuublies.GetComponentInChildren<Text>().text = positiveThoughts[i];
                     index = i;
+
+                    StartCoroutine(BurstBubbleIntoNegative(buuublies, i, 3.0f));
                     break;
                 }
             }
         }
 
         return index;
+    }
+
+
+    private IEnumerator BurstBubbleIntoNegative(GameObject bubble, int textIndex, float delay)
+    {
+        while((delay -= Time.deltaTime) > 0)
+        {
+            yield return null;
+        }
+
+        SpawnBuuuble(bubble.transform.position, "angwy", textIndex);
+
+        if (bubble != null)
+            bubble.GetComponent<Bubble>().Kill();
     }
 }

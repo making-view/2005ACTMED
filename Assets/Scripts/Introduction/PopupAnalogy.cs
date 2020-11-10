@@ -5,39 +5,49 @@ using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(AudioSource))]
 public class PopupAnalogy : MonoBehaviour
 {
-    public enum ToDo
+    public enum Task
     {
-        bonk,
-        pop,
-        run,
-        groper,
-        none
+        Bonk,
+        Pop,
+        Run,
+        Groper,
+        None
     }
+
+
+    private int[] scale = new int[] { 0, 2, 4, 5, 7, 9, 11, 12 };
 
     [Serializable]
     private class Event
     {
         [SerializeField] public string name = "default";
-        [SerializeField] public ToDo task = ToDo.none;
+        [SerializeField] public Task task = Task.None;
         [SerializeField] public AudioClip narration = null;
         [SerializeField] public int numberOfTimes = 4;
         [SerializeField] public float delayOnComplete = 2.0f;
 
+        [SerializeField] public bool playFeedback = true;
         [SerializeField] public UnityEvent onStartOfEvent = null;
     }
 
+    private int maxTask = 0;
     private int eventIndex = 0;
     [SerializeField] private List<Event> events = null;
     private bool waitingForNextEvent = true;
-    private AudioSource audio = null;
+    private AudioSource narrationSource = null;
+    private AudioSource feedbackSource = null;
+
+    [SerializeField] private AudioClip feedback = null;
 
     // Start is called before the first frame update
     private void Start()
     {
-        audio = GetComponent<AudioSource>();        
+        narrationSource = gameObject.AddComponent<AudioSource>();
+        feedbackSource = gameObject.AddComponent<AudioSource>();
+        feedbackSource.volume = 0.5f;
+        feedbackSource.clip = feedback;
     }
 
     void Awake()
@@ -50,75 +60,101 @@ public class PopupAnalogy : MonoBehaviour
     {
         eventIndex = 0;
         waitingForNextEvent = false;
-        StartTask(0);
+        StartCoroutine(StartEvent(eventIndex));
     }
 
-    public void DoAction(ToDo action)
+    public bool DoTask(Task action)
     {
-        if(!waitingForNextEvent && eventIndex < events.Count)
+        var didTask = false;
+
+        if (!waitingForNextEvent && eventIndex < events.Count)
         {
+            didTask = true;
+
             if (events[eventIndex].task.Equals(action))
+            {
+                feedbackSource.Stop();
                 events[eventIndex].numberOfTimes--;
+
+                if (!action.Equals(Task.None))
+                {
+                    float step = 0.0f;
+                    if (maxTask == 1)
+                        step = 0;
+                    else
+                        step = (maxTask - 1.0f - events[eventIndex].numberOfTimes) / (maxTask - 1.0f);
+
+                    //step goes from 0 to 1 based on tasks done
+                    var tone = Mathf.Pow(1.05946f, scale[Mathf.RoundToInt(step * 7)]);
+
+                    feedbackSource.pitch = tone;
+
+                    if(events[eventIndex].playFeedback || events[eventIndex].numberOfTimes <= 0)
+                        feedbackSource.Play();
+                }
+            }
 
             if (events[eventIndex].numberOfTimes <= 0)
             {
+                ++eventIndex;
+
                 waitingForNextEvent = true;
-                StartCoroutine(StartTask(eventIndex));
+                StartCoroutine(StartEvent(eventIndex));
             }
         }
+
+        return didTask;
     }
 
-    private IEnumerator StartTask(int newIndex)
+    private IEnumerator StartEvent(int newIndex)
     {
         //if donzo
         if (newIndex >= events.Count)
         {
+            yield return new WaitForSeconds(events[newIndex - 1].delayOnComplete);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
-            while (audio.isPlaying)
-                yield return null;
-
-            if (eventIndex > 0)
-            {
-                Debug.Log("starting task " + events[newIndex].name + " in " + events[newIndex - 1].delayOnComplete + " seconds after audio");
+            if (newIndex > 0)
                 yield return new WaitForSeconds(events[newIndex - 1].delayOnComplete);
-            }
-
-            waitingForNextEvent = false;
-            events[newIndex].onStartOfEvent.Invoke();
 
             if (events[newIndex].narration != null)
             {
-                audio.clip = events[newIndex].narration;
-                audio.Play();
+                narrationSource.clip = events[newIndex].narration;
+                narrationSource.Play();
             }
 
-            if (++eventIndex >= events.Count)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            
-            DoAction(ToDo.none);
+            //events[newIndex].onBeforeEventNarration.Invoke();
+
+            while (narrationSource.isPlaying)
+                yield return null;
+
+            events[newIndex].onStartOfEvent.Invoke();
+
+            maxTask = events[newIndex].numberOfTimes;
+
+            waitingForNextEvent = false;
+
+            DoTask(Task.None);
         }
     }
 
-
-    //Testshit
     private void Update()
     {
         //for testing, pls delete this shit
         if (Input.GetKeyDown(KeyCode.B))
-            DoAction(ToDo.bonk);
+            DoTask(Task.Bonk);
 
         if (Input.GetKeyDown(KeyCode.G))
-            DoAction(ToDo.groper);
+            DoTask(Task.Groper);
 
         if (Input.GetKeyDown(KeyCode.P))
-            DoAction(ToDo.pop);
+            DoTask(Task.Pop);
 
         //apart from this hahahehe
         if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).magnitude > 0.5f)
-            DoAction(ToDo.run);
+            DoTask(Task.Run);
 
     }
 

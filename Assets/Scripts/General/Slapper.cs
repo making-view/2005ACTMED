@@ -12,7 +12,8 @@ public class Slapper : MonoBehaviour
         Poppers, 
         Changers
     }
-
+    private float hahacooldownfunni = 1.0f;
+    private float maxFunnilol = 0.0f;
     private BubbleSpawner spawner = null;
     private Vector3 prevPosition = Vector3.zero;
     private Vector3 velocity = Vector3.zero;
@@ -24,6 +25,7 @@ public class Slapper : MonoBehaviour
 
     void Start()
     {
+        maxFunnilol = hahacooldownfunni;
         ChangeInteractionMode(interactionmode);
         spawner = FindObjectOfType<BubbleSpawner>();
         popupAnalogy = FindObjectOfType<PopupAnalogy>();
@@ -34,6 +36,8 @@ public class Slapper : MonoBehaviour
     {
         velocity = (transform.parent.parent.localPosition - prevPosition) / Time.fixedDeltaTime;
         prevPosition = transform.parent.parent.localPosition;
+
+        hahacooldownfunni -= Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -67,19 +71,24 @@ public class Slapper : MonoBehaviour
 
     private void Change(Collider other)
     {
-        var index = spawner.MakePositive(other.gameObject);
-        if (index >= 0)
+        if(hahacooldownfunni <= 0.0f)
         {
-            spawner.SpawnBuuuble(other.gameObject.transform.position, "default", index);
-            other.gameObject.GetComponent<Bubble>().ChangeBehaviour("positive");
-            popupAnalogy.DoAction(PopupAnalogy.ToDo.groper);
+            var index = spawner.MakeTemporaryPositive(other.gameObject);
+            if (index >= 0)
+            {
+                spawner.SpawnBuuuble(other.gameObject.transform.position, "default", index);
+                other.gameObject.GetComponent<Bubble>().ChangeBehaviour("positive");
+                popupAnalogy.DoTask(PopupAnalogy.Task.Groper);
+            }
+
+            hahacooldownfunni = maxFunnilol;
         }
     }
 
     private void Pop(Collider other)
     {
         spawner.PopBubble(other.gameObject);
-        popupAnalogy.DoAction(PopupAnalogy.ToDo.pop);
+        popupAnalogy.DoTask(PopupAnalogy.Task.Pop);
     }
 
     private void Bonk(Collider other)
@@ -87,18 +96,18 @@ public class Slapper : MonoBehaviour
         if (velocity.magnitude > bonkVel * 5)
         {
             Pop(other);
-            popupAnalogy.DoAction(PopupAnalogy.ToDo.bonk);
+            popupAnalogy.DoTask(PopupAnalogy.Task.Bonk);
         }
         else if (velocity.magnitude > bonkVel)
         {
             other.GetComponent<Rigidbody>()
                 .velocity = ((other.gameObject.transform.position - transform.position).normalized * velocity.magnitude);
 
-            popupAnalogy.DoAction(PopupAnalogy.ToDo.bonk);
+            popupAnalogy.DoTask(PopupAnalogy.Task.Bonk);
         }
         else
         {
-            popupAnalogy.DoAction(PopupAnalogy.ToDo.groper);
+            popupAnalogy.DoTask(PopupAnalogy.Task.Groper);
         }
     }
 }

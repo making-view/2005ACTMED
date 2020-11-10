@@ -5830,7 +5830,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1208839387}
   - component: {fileID: 1208839388}
-  - component: {fileID: 1208839389}
   m_Layer: 0
   m_Name: PopupAnalogy
   m_TagString: Untagged
@@ -5871,8 +5870,9 @@ MonoBehaviour:
   - name: intro
     task: 4
     narration: {fileID: 8300000, guid: 075a1ef57e3e2284d881380ade48e90a, type: 3}
-    numberOfTimes: 0
-    delayOnComplete: 2
+    numberOfTimes: 1
+    delayOnComplete: 5
+    playFeedback: 1
     onStartOfEvent:
       m_PersistentCalls:
         m_Calls:
@@ -5882,7 +5882,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 10
+            m_IntArgument: 5
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -5899,10 +5899,11 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - name: Bonk
-    task: 4
+    task: 0
     narration: {fileID: 8300000, guid: 3d953f2b3cd2cc349bc290f74a566870, type: 3}
-    numberOfTimes: 0
-    delayOnComplete: 2
+    numberOfTimes: 8
+    delayOnComplete: 1
+    playFeedback: 1
     onStartOfEvent:
       m_PersistentCalls:
         m_Calls:
@@ -5918,18 +5919,20 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - name: run
-    task: 0
+    task: 2
     narration: {fileID: 8300000, guid: 5ef4f39f2071b60448ef8f8949b1a335, type: 3}
-    numberOfTimes: 7
+    numberOfTimes: 150
     delayOnComplete: 3
+    playFeedback: 0
     onStartOfEvent:
       m_PersistentCalls:
         m_Calls: []
   - name: Touch
-    task: 2
+    task: 3
     narration: {fileID: 8300000, guid: 661a3b5debf8e254496f6501ef2a53de, type: 3}
-    numberOfTimes: 150
-    delayOnComplete: 2
+    numberOfTimes: 8
+    delayOnComplete: 1
+    playFeedback: 1
     onStartOfEvent:
       m_PersistentCalls:
         m_Calls:
@@ -5945,10 +5948,11 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - name: Angry
-    task: 3
+    task: 4
     narration: {fileID: 8300000, guid: 58828417068d10f469ca1292b1233741, type: 3}
-    numberOfTimes: 7
+    numberOfTimes: 1
     delayOnComplete: 2
+    playFeedback: 1
     onStartOfEvent:
       m_PersistentCalls:
         m_Calls:
@@ -5977,8 +5981,9 @@ MonoBehaviour:
   - name: CalmDown
     task: 4
     narration: {fileID: 8300000, guid: 828783255669b0a4c834bbece8de3dfe, type: 3}
-    numberOfTimes: 0
+    numberOfTimes: 1
     delayOnComplete: 1
+    playFeedback: 1
     onStartOfEvent:
       m_PersistentCalls:
         m_Calls:
@@ -5993,11 +5998,12 @@ MonoBehaviour:
             m_StringArgument: bonkers
             m_BoolArgument: 0
           m_CallState: 2
-  - name: Done?
+  - name: Let it go
     task: 4
     narration: {fileID: 8300000, guid: 38f2e556c76a25f4689d4db58bba9321, type: 3}
-    numberOfTimes: 0
+    numberOfTimes: 1
     delayOnComplete: 7
+    playFeedback: 1
     onStartOfEvent:
       m_PersistentCalls:
         m_Calls:
@@ -6023,11 +6029,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - name: Done
+  - name: Remove fog
     task: 4
     narration: {fileID: 0}
-    numberOfTimes: 0
+    numberOfTimes: 1
     delayOnComplete: 5
+    playFeedback: 1
     onStartOfEvent:
       m_PersistentCalls:
         m_Calls:
@@ -6042,110 +6049,16 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - name: Done
+  - name: Wait
     task: 4
     narration: {fileID: 0}
-    numberOfTimes: 0
-    delayOnComplete: 10
+    numberOfTimes: 1
+    delayOnComplete: 13
+    playFeedback: 1
     onStartOfEvent:
       m_PersistentCalls:
         m_Calls: []
---- !u!82 &1208839389
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1208839386}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  feedback: {fileID: 8300000, guid: 440171aa1be6c9c47935ac76c3e383a3, type: 3}
 --- !u!1001 &1211180488
 PrefabInstance:
   m_ObjectHideFlags: 0
