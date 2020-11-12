@@ -610,4 +610,9 @@ public class OVRPlayerController : MonoBehaviour
 			transform.rotation = Quaternion.Euler(euler);
 		}
 	}
+
+	public void setMoveScale(float moveScale)
+    {
+		MoveScaleMultiplier = moveScale;
+    }
 }
