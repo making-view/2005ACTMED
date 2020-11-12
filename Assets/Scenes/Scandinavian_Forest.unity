@@ -2323,7 +2323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionmode: 0
-  bonkVel: 1.7
+  bonkVel: 0.5
 --- !u!135 &446049922
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3231,7 +3231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionmode: 0
-  bonkVel: 1.7
+  bonkVel: 0.5
 --- !u!135 &585517897
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6052,7 +6052,7 @@ MonoBehaviour:
         m_Calls: []
   - name: Remove fog
     task: 4
-    narration: {fileID: 0}
+    narration: {fileID: 8300000, guid: 74d1c646f4f4b7048b04695e09ba50f9, type: 3}
     numberOfTimes: 1
     delayOnComplete: 5
     playFeedback: 1
@@ -6075,9 +6075,9 @@ MonoBehaviour:
         m_Calls: []
   - name: Wait
     task: 4
-    narration: {fileID: 0}
+    narration: {fileID: 8300000, guid: fd16106dc32770c43ab818f365696387, type: 3}
     numberOfTimes: 1
-    delayOnComplete: 13
+    delayOnComplete: 10
     playFeedback: 1
     onStartOfEvent:
       m_PersistentCalls:

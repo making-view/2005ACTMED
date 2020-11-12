@@ -135,6 +135,7 @@ public class EventVolume : MonoBehaviour
             {
                 i.ue.Invoke();
                 onEnterInvoke.Remove(i);
+                break;
             }
         }
     }

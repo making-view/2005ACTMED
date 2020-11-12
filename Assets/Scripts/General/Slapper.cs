@@ -93,7 +93,7 @@ public class Slapper : MonoBehaviour
 
     private void Bonk(Collider other)
     {
-        if (velocity.magnitude > bonkVel * 5)
+        if (velocity.magnitude > bonkVel * 15)
         {
             Pop(other);
             popupAnalogy.DoTask(PopupAnalogy.Task.Bonk);
