@@ -12834,7 +12834,7 @@ MonoBehaviour:
   GravityModifier: 0.05
   useProfileData: 1
   EnableLinearMovement: 1
-  EnableRotation: 1
+  EnableRotation: 0
   RotationEitherThumbstick: 0
   MoveScaleMultiplier: 0.13
 --- !u!143 &1605790948

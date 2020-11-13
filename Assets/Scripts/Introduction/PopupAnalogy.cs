@@ -17,7 +17,7 @@ public class PopupAnalogy : MonoBehaviour
     }
 
 
-    private int[] scale = new int[] { 0, 2, 4, 5, 7, 9, 11, 12 };
+    //private int[] scale = new int[] { 0, 2, 4, 5, 7, 9, 11, 12 };
 
     [Serializable]
     private class Event
@@ -86,7 +86,8 @@ public class PopupAnalogy : MonoBehaviour
                         step = (maxTask - 1.0f - events[eventIndex].numberOfTimes) / (maxTask - 1.0f);
 
                     //step goes from 0 to 1 based on tasks done
-                    var tone = Mathf.Pow(1.05946f, scale[Mathf.RoundToInt(step * 7)]);
+                    //var tone = Mathf.Pow(1.05946f, scale[Mathf.RoundToInt(step * 7)]);
+                    var tone = Mathf.Pow(1.05946f, Mathf.RoundToInt(step * 12));
 
                     feedbackSource.pitch = tone;
 

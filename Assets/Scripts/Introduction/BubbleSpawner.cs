@@ -285,6 +285,7 @@ public class BubbleSpawner : MonoBehaviour
                 {
                     //Debug.Log("Setting text from: " + negativeThoughts[i] + ", to: " + positiveThoughts[i]);
                     buuublies.GetComponentInChildren<Text>().text = positiveThoughts[i];
+                    buuublies.GetComponent<Bubble>().ChangeBehaviour("positive");
                     index = i;
 
                     StartCoroutine(BurstBubbleIntoNegative(buuublies, i, 3.0f));

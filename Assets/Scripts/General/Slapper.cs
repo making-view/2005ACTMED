@@ -76,8 +76,10 @@ public class Slapper : MonoBehaviour
             var index = spawner.MakeTemporaryPositive(other.gameObject);
             if (index >= 0)
             {
-                spawner.SpawnBuuuble(other.gameObject.transform.position, "default", index);
-                other.gameObject.GetComponent<Bubble>().ChangeBehaviour("positive");
+                var bobli = spawner.SpawnBuuuble(other.gameObject.transform.position, "default", index);
+                other.gameObject.GetComponent<Bubble>().Kill();
+                spawner.MakeTemporaryPositive(bobli);
+                bobli.GetComponent<Bubble>().ChangeBehaviour("positive");
                 popupAnalogy.DoTask(PopupAnalogy.Task.Groper);
             }
 

@@ -1017,7 +1017,7 @@ MonoBehaviour:
   usePositionTracking: 1
   useRotationTracking: 1
   useIPDInPositionTracking: 1
-  resetTrackerOnLoad: 0
+  resetTrackerOnLoad: 1
   AllowRecenter: 1
   _reorientHMDOnControllerRecenter: 1
   LateControllerUpdate: 1
@@ -5904,7 +5904,7 @@ MonoBehaviour:
   - name: Bonk
     task: 0
     narration: {fileID: 8300000, guid: 3d953f2b3cd2cc349bc290f74a566870, type: 3}
-    numberOfTimes: 8
+    numberOfTimes: 13
     delayOnComplete: 1
     playFeedback: 1
     onStartOfEvent:
@@ -5927,7 +5927,7 @@ MonoBehaviour:
   - name: run
     task: 2
     narration: {fileID: 8300000, guid: 5ef4f39f2071b60448ef8f8949b1a335, type: 3}
-    numberOfTimes: 150
+    numberOfTimes: 300
     delayOnComplete: 3
     playFeedback: 0
     onStartOfEvent:
@@ -5939,7 +5939,7 @@ MonoBehaviour:
   - name: Touch
     task: 3
     narration: {fileID: 8300000, guid: 661a3b5debf8e254496f6501ef2a53de, type: 3}
-    numberOfTimes: 8
+    numberOfTimes: 13
     delayOnComplete: 1
     playFeedback: 1
     onStartOfEvent:
@@ -6131,7 +6131,7 @@ PrefabInstance:
     - target: {fileID: 437733106687123673, guid: 48963c3b76ea5f54b9a854a1096109a5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 437733106687123673, guid: 48963c3b76ea5f54b9a854a1096109a5,
         type: 3}
@@ -10410,7 +10410,7 @@ PrefabInstance:
     - target: {fileID: 8197029773405459621, guid: d423fdb688856404883d3186608568ff,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8197029773405459621, guid: d423fdb688856404883d3186608568ff,
         type: 3}
